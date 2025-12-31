@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4w0xm4p43dyl"]
+
+[ext_resource type="Script" uid="uid://ii1lwyvs2l2f" path="res://Scripts/weekday.gd" id="1_w7vp8"]
+
+[node name="WeekDay" type="PanelContainer"]
+offset_right = 240.0
+offset_bottom = 64.0
+script = ExtResource("1_w7vp8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "MON"
+
+[node name="Minigame" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/Minigame"]
+layout_mode = 2
+text = "NAME"
+
+[node name="Description" type="Label" parent="HBoxContainer/Minigame"]
+layout_mode = 2
+text = "DESCRIPTION"

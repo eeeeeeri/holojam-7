@@ -1,32 +1,33 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnqhejfut3w7b"]
+[gd_scene load_steps=13 format=3 uid="uid://bnqhejfut3w7b"]
 
-[ext_resource type="Script" uid="uid://deq4n12lu8a3j" path="res://Scripts/main.gd" id="1_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://c2jdiexj4wntx" path="res://Assets/Sprites/temp_angry_reaction.png" id="2_kry3j"]
-[ext_resource type="Texture2D" uid="uid://dt4m6sja71wo1" path="res://Assets/Sprites/temp_default_reaction.png" id="3_21xkr"]
-[ext_resource type="Texture2D" uid="uid://dlvgmc8fhttan" path="res://Assets/Sprites/temp_happy_reaction.png" id="4_6bp64"]
+[ext_resource type="Script" uid="uid://deq4n12lu8a3j" path="res://Scripts/main.gd" id="1_3ietj"]
+[ext_resource type="Texture2D" uid="uid://c2jdiexj4wntx" path="res://Assets/Sprites/temp_angry_reaction.png" id="2_lcg5u"]
+[ext_resource type="Texture2D" uid="uid://dt4m6sja71wo1" path="res://Assets/Sprites/temp_default_reaction.png" id="3_00b8s"]
+[ext_resource type="Texture2D" uid="uid://dlvgmc8fhttan" path="res://Assets/Sprites/temp_happy_reaction.png" id="4_35h1h"]
+[ext_resource type="PackedScene" uid="uid://b4w0xm4p43dyl" path="res://Scenes/Schedule/weekday.tscn" id="5_h2ku8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
-atlas = ExtResource("2_kry3j")
+atlas = ExtResource("2_lcg5u")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
-atlas = ExtResource("2_kry3j")
+atlas = ExtResource("2_lcg5u")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hptm8"]
-atlas = ExtResource("3_21xkr")
+atlas = ExtResource("3_00b8s")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1ilt"]
-atlas = ExtResource("3_21xkr")
+atlas = ExtResource("3_00b8s")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6iyac"]
-atlas = ExtResource("4_6bp64")
+atlas = ExtResource("4_35h1h")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdnlq"]
-atlas = ExtResource("4_6bp64")
+atlas = ExtResource("4_35h1h")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jkdf5"]
@@ -66,7 +67,7 @@ animations = [{
 }]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_jjvhh")
+script = ExtResource("1_3ietj")
 
 [node name="TasksLeft" type="Label" parent="."]
 offset_right = 40.0
@@ -85,7 +86,7 @@ one_shot = true
 autostart = true
 
 [node name="NextMinigame" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 
 [node name="LiveKronersReaction" type="AnimatedSprite2D" parent="."]
@@ -95,28 +96,37 @@ sprite_frames = SubResource("SpriteFrames_jkdf5")
 autoplay = "default"
 
 [node name="Schedule" type="VBoxContainer" parent="."]
-offset_left = 780.0
-offset_top = 50.0
-offset_right = 913.0
-offset_bottom = 100.0
+offset_left = 842.0
+offset_top = 54.0
+offset_right = 990.0
+offset_bottom = 428.0
 
-[node name="Monday" type="HBoxContainer" parent="Schedule"]
+[node name="WeekDay" parent="Schedule" instance=ExtResource("5_h2ku8")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Schedule/Monday"]
+[node name="WeekDay2" parent="Schedule" instance=ExtResource("5_h2ku8")]
 layout_mode = 2
-text = "MON"
+weekday = 1
 
-[node name="Minigame" type="VBoxContainer" parent="Schedule/Monday"]
+[node name="WeekDay3" parent="Schedule" instance=ExtResource("5_h2ku8")]
 layout_mode = 2
+weekday = 2
 
-[node name="Title" type="Label" parent="Schedule/Monday/Minigame"]
+[node name="WeekDay4" parent="Schedule" instance=ExtResource("5_h2ku8")]
 layout_mode = 2
-text = "NAME"
+weekday = 3
 
-[node name="Description" type="Label" parent="Schedule/Monday/Minigame"]
+[node name="WeekDay5" parent="Schedule" instance=ExtResource("5_h2ku8")]
 layout_mode = 2
-text = "DESCRIPTION"
+weekday = 4
+
+[node name="WeekDay6" parent="Schedule" instance=ExtResource("5_h2ku8")]
+layout_mode = 2
+weekday = 5
+
+[node name="WeekDay7" parent="Schedule" instance=ExtResource("5_h2ku8")]
+layout_mode = 2
+weekday = 6
 
 [connection signal="timeout" from="Reaction" to="." method="_on_reaction_timeout"]
 [connection signal="timeout" from="NextMinigame" to="." method="_on_next_minigame_timeout"]

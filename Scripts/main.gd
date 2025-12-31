@@ -5,9 +5,7 @@ extends Node2D
 @onready var next_minigame: Timer = $NextMinigame
 @onready var tasks_left: Label = $TasksLeft
 @onready var days_left: Label = $DaysLeft
-
-@onready var title: Label = $Schedule/Monday/Minigame/Title
-@onready var description: Label = $Schedule/Monday/Minigame/Description
+@onready var schedule: VBoxContainer = $Schedule
 
 
 func _ready() -> void:
@@ -23,19 +21,23 @@ func _ready() -> void:
 	if Globals.last_minigame_won:
 		Globals.tasks_left -= 1
 	Globals.days_left -= 1
-
-
-func _process(delta: float) -> void:
+	
 	tasks_left.text = "TASKS LEFT: " + str(Globals.tasks_left)
 	days_left.text = "DAYS LEFT: " + str(Globals.days_left)
+	
+	for i in range(Globals.week_minigames.size()):
+		schedule.get_child(i).minigame = Globals.week_minigames[i]
 
 
 func _on_reaction_timeout() -> void:
+	
 	live_kroners_reaction.animation = "default"
 	if Globals.first_minigame: Globals.first_minigame = false
 	Globals.current_minigame = Globals.minigames.pick_random()
-	title.text = Globals.current_minigame.title
-	description.text = Globals.current_minigame.description
+	
+	Globals.week_minigames.append(Globals.current_minigame)
+	schedule.get_child(Globals.today).minigame = Globals.current_minigame
+	
 	next_minigame.start()
 
 
