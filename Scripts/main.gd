@@ -10,6 +10,7 @@ extends Node2D
 
 func _ready() -> void:
 	
+	# Kronii Reaction
 	if Globals.first_minigame:
 		live_kroners_reaction.animation = "default"
 	else:
@@ -18,23 +19,30 @@ func _ready() -> void:
 		else:
 			live_kroners_reaction.animation = "angry"
 	
-	if Globals.last_minigame_won:
-		Globals.tasks_left -= 1
-	Globals.days_left -= 1
+	# Update days and tasks left
+	if !Globals.first_minigame:
+		if Globals.last_minigame_won:
+			Globals.tasks_left -= 1
+		Globals.days_left -= 1
 	
 	tasks_left.text = "TASKS LEFT: " + str(Globals.tasks_left)
 	days_left.text = "DAYS LEFT: " + str(Globals.days_left)
 	
+	# Update schedule
 	for i in range(Globals.week_minigames.size()):
 		schedule.get_child(i).minigame = Globals.week_minigames[i]
 
 
 func _on_reaction_timeout() -> void:
 	
+	# Reset Kronii animation
 	live_kroners_reaction.animation = "default"
+	
+	# Pick random minigame
 	if Globals.first_minigame: Globals.first_minigame = false
 	Globals.current_minigame = Globals.minigames.pick_random()
 	
+	# Add minigame to schedule
 	Globals.week_minigames.append(Globals.current_minigame)
 	schedule.get_child(Globals.today).minigame = Globals.current_minigame
 	

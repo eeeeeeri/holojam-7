@@ -1,18 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://bws7safjar52n"]
 
-[ext_resource type="Script" uid="uid://cvuf2ne13pdva" path="res://Scripts/minigame.gd" id="1_mhhjm"]
+[ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_mhhjm"]
 
-[node name="Minigame" type="Node2D"]
+[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer")]
 script = ExtResource("1_mhhjm")
+end_timer = NodePath("EndTimer")
 
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "imagine a very cool minigame and you won!!!!!!"
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

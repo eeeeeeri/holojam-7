@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cii6pkkh4uwrd"]
+
+[ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_3qr6b"]
+[ext_resource type="Script" uid="uid://bbifh4gfejvog" path="res://Scripts/sc_reading.gd" id="2_31min"]
+
+[node name="SuperchatReading" type="Node2D" node_paths=PackedStringArray("end_timer")]
+script = ExtResource("1_3qr6b")
+end_timer = NodePath("EndTimer")
+metadata/_custom_type_script = "uid://hf46e0e1jr46"
+
+[node name="Control" type="Node2D" parent="."]
+script = ExtResource("2_31min")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+offset_right = 511.0
+offset_bottom = 368.0
+color = Color(1, 0, 0, 1)
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
