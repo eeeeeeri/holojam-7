@@ -1,10 +1,12 @@
 extends Node2D
 
 const SUPERCHAT = preload("uid://d16ukgas0boul")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var superchats = []
-var sc_num = 0
-var read = 0
+var sc_num := 0
+var read := 0
+var won := false
 
 func _ready() -> void:
 	sc_num = randi_range(3,8)
@@ -16,7 +18,11 @@ func _ready() -> void:
 		superchats.append(new_superchat)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("left_mouse"):
-		read += 1
-		if read >= sc_num:
-			Globals.last_minigame_won = true
+	if !won:
+		if Input.is_action_just_pressed("left_mouse"):
+			read += 1
+			if read >= sc_num:
+				animation_player.play("appear")
+				
+				Globals.last_minigame_won = true
+				won = true

@@ -1,14 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bws7safjar52n"]
+[gd_scene load_steps=4 format=3 uid="uid://bws7safjar52n"]
 
 [ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_mhhjm"]
 
-[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhhjm"]
+bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33s2o"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer", "progress_bar")]
 script = ExtResource("1_mhhjm")
 end_timer = NodePath("EndTimer")
+progress_bar = NodePath("ProgressBar")
 
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mhhjm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
+show_percentage = false
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

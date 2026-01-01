@@ -1,10 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://d16ukgas0boul"]
+[gd_scene load_steps=8 format=3 uid="uid://d16ukgas0boul"]
 
 [ext_resource type="Texture2D" uid="uid://da2k8w8bed42v" path="res://Assets/Sprites/SuperchatReading/sc.png" id="1_n3r31"]
 [ext_resource type="Script" uid="uid://rlegdc2rsvjl" path="res://Scripts/superchat.gd" id="2_7xgsu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n3r31"]
 font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xgsu"]
+font_size = 56
+
+[sub_resource type="Animation" id="Animation_7xgsu"]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Username:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-27, -14), Vector2(-27, -12), Vector2(-27, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Message:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-37, -3), Vector2(-37, -1), Vector2(-37, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_na86h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Username:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Message:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37, -3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdq8v"]
+_data = {
+&"RESET": SubResource("Animation_na86h"),
+&"jump": SubResource("Animation_7xgsu")
+}
 
 [node name="Superchat" type="Sprite2D"]
 texture = ExtResource("1_n3r31")
@@ -23,8 +111,14 @@ label_settings = SubResource("LabelSettings_n3r31")
 [node name="Message" type="Label" parent="."]
 offset_left = -37.0
 offset_top = -3.0
-offset_right = 289.0
-offset_bottom = 96.0
+offset_right = 702.99994
+offset_bottom = 186.99997
 scale = Vector2(0.1, 0.1)
 text = "MESSAGE"
-label_settings = SubResource("LabelSettings_n3r31")
+label_settings = SubResource("LabelSettings_7xgsu")
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wdq8v")
+}
