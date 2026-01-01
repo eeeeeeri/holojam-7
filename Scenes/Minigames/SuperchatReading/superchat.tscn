@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://d16ukgas0boul"]
+
+[ext_resource type="Texture2D" uid="uid://da2k8w8bed42v" path="res://Assets/Sprites/SuperchatReading/sc.png" id="1_n3r31"]
+[ext_resource type="Script" uid="uid://rlegdc2rsvjl" path="res://Scripts/superchat.gd" id="2_7xgsu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3r31"]
+font_size = 72
+
+[node name="Superchat" type="Sprite2D"]
+texture = ExtResource("1_n3r31")
+hframes = 5
+script = ExtResource("2_7xgsu")
+
+[node name="Username" type="Label" parent="."]
+offset_left = -27.0
+offset_top = -14.0
+offset_right = 504.0
+offset_bottom = 85.0
+scale = Vector2(0.08, 0.08)
+text = "NAME"
+label_settings = SubResource("LabelSettings_n3r31")
+
+[node name="Message" type="Label" parent="."]
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 289.0
+offset_bottom = 96.0
+scale = Vector2(0.1, 0.1)
+text = "MESSAGE"
+label_settings = SubResource("LabelSettings_n3r31")

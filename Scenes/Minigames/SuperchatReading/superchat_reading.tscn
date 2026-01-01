@@ -11,12 +11,11 @@ metadata/_custom_type_script = "uid://hf46e0e1jr46"
 [node name="Control" type="Node2D" parent="."]
 script = ExtResource("2_31min")
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-offset_right = 511.0
-offset_bottom = 368.0
-color = Color(1, 0, 0, 1)
-
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -54)
+zoom = Vector2(4.5, 4.5)
