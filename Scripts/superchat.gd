@@ -19,6 +19,7 @@ const messages = [
 
 @onready var username: Label = $Username
 @onready var message: Label = $Message
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	frame = randi_range(0,4)
@@ -27,4 +28,5 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
+		animation_player.play("jump")
 		position.y += 36

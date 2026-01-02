@@ -6,6 +6,7 @@ var description: String
 var played: bool
 
 @export var end_timer : Timer
+@export var progress_bar: ProgressBar
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -14,7 +15,12 @@ static func minigame(new_scene_file: String, new_title: String, new_description:
 	new_minigame.description = new_description
 	return new_minigame
 
+func _ready() -> void:
+	progress_bar.max_value = end_timer.wait_time
+
 func _process(delta: float) -> void:
+	progress_bar.value = end_timer.wait_time - end_timer.time_left
+	
 	if end_timer.time_left <= 0:
 		
 		# Progress the week

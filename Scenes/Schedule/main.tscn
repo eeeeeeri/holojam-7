@@ -14,19 +14,19 @@ region = Rect2(0, 0, 100, 100)
 atlas = ExtResource("2_lcg5u")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hptm8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ietj"]
 atlas = ExtResource("3_00b8s")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1ilt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcg5u"]
 atlas = ExtResource("3_00b8s")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6iyac"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_00b8s"]
 atlas = ExtResource("4_35h1h")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdnlq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
 atlas = ExtResource("4_35h1h")
 region = Rect2(100, 0, 100, 100)
 
@@ -45,10 +45,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hptm8")
+"texture": SubResource("AtlasTexture_3ietj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d1ilt")
+"texture": SubResource("AtlasTexture_lcg5u")
 }],
 "loop": true,
 "name": &"default",
@@ -56,10 +56,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6iyac")
+"texture": SubResource("AtlasTexture_00b8s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fdnlq")
+"texture": SubResource("AtlasTexture_35h1h")
 }],
 "loop": true,
 "name": &"happy",
@@ -90,9 +90,10 @@ wait_time = 3.0
 one_shot = true
 
 [node name="LiveKronersReaction" type="AnimatedSprite2D" parent="."]
-position = Vector2(212, 289)
+position = Vector2(235.00002, 317)
 scale = Vector2(3.7, 3.7)
 sprite_frames = SubResource("SpriteFrames_jkdf5")
+animation = &"angry"
 autoplay = "default"
 
 [node name="Schedule" type="VBoxContainer" parent="."]
