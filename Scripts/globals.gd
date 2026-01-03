@@ -5,6 +5,7 @@ enum WeekDay {MON, TUE, WED, THU, FRI, SAT, SUN}
 var minigames = [
 	# Minigame.minigame("res://Scenes/Minigames/minigame.tscn","Test","Description Test"),
 	Minigame.minigame("res://Scenes/Minigames/SuperchatReading/superchat_reading.tscn","Superchat Reading","Read all the Superchats!"),
+	Minigame.minigame("res://Scenes/Minigames/Rugpull/rugpull.tscn","Scam with $KRONII","Sell $KRONII at a High!"),
 ]
 
 var week_minigames = []
