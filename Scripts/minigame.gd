@@ -1,12 +1,16 @@
 class_name Minigame extends Node2D
 
+enum InputType {KEYBOARD, MOUSE}
+
+@export var end_timer : Timer
+@export var progress_bar: ProgressBar
+@export var input_hint: AnimatedSprite2D
+@export var input_type: InputType
+
 var scene_file: String
 var title: String
 var description: String
 var played: bool
-
-@export var end_timer : Timer
-@export var progress_bar: ProgressBar
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -17,9 +21,18 @@ static func minigame(new_scene_file: String, new_title: String, new_description:
 
 func _ready() -> void:
 	progress_bar.max_value = end_timer.wait_time
+	
+	match input_type:
+		InputType.KEYBOARD:
+			input_hint.play("keyboard")
+		InputType.MOUSE:
+			input_hint.play("mouse")
 
 func _process(delta: float) -> void:
 	progress_bar.value = end_timer.wait_time - end_timer.time_left
+	
+	if Input.is_anything_pressed():
+		input_hint.visible = false
 	
 	if end_timer.time_left <= 0:
 		

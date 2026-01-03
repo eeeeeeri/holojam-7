@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cyhqprcp86adf"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_5mw6m"]
-[ext_resource type="Script" uid="uid://df15p6a5f0vts" path="res://Scripts/rugpull.gd" id="2_trdgb"]
+[ext_resource type="Script" path="res://Scripts/rugpull.gd" id="2_trdgb"]
 [ext_resource type="Texture2D" uid="uid://dyxt5lf1vsvui" path="res://Assets/Sprites/Rugpull/bg.png" id="3_votj2"]
 [ext_resource type="Texture2D" uid="uid://des33s1er0cdy" path="res://Assets/Sprites/Rugpull/sell.png" id="4_7yxty"]
 [ext_resource type="Texture2D" uid="uid://xpyocpdo5lkp" path="res://Assets/Sprites/Rugpull/dollar.png" id="5_7yxty"]
@@ -24,6 +24,7 @@ offsets = PackedFloat32Array(0, 0.45890412)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Rugpull" instance=ExtResource("1_5mw6m")]
+input_type = 1
 
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_trdgb")
@@ -84,6 +85,9 @@ offset_bottom = 144.0
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 anchor_mode = 0
 zoom = Vector2(4.5, 4.5)
+
+[node name="InputHint" parent="." index="4"]
+position = Vector2(128, 64)
 
 [connection signal="timeout" from="Control/Clock" to="Control" method="_on_clock_timeout"]
 [connection signal="button_up" from="Control/SellButton" to="Control" method="_on_sell_button_button_up"]
