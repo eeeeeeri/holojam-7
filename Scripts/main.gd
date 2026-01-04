@@ -10,6 +10,7 @@ extends Node2D
 
 func _ready() -> void:
 	
+	Audio.play_music()
 	# Kronii Reaction
 	if Globals.first_minigame:
 		live_kroners_reaction.animation = "default"

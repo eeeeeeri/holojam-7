@@ -10,7 +10,6 @@ var minigames = [
 ]
 
 var week_minigames = []
-
 var first_minigame := true
 var minigame_won := false
 var last_minigame_won := false
