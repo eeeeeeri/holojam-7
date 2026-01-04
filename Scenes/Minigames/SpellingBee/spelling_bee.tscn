@@ -1,11 +1,93 @@
-[gd_scene load_steps=19 format=3 uid="uid://75xfiemq0b1v"]
+[gd_scene load_steps=27 format=3 uid="uid://75xfiemq0b1v"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_aysan"]
 [ext_resource type="Script" uid="uid://dg1jib3ke2xwg" path="res://Scripts/spelling_bee.gd" id="2_a045p"]
-[ext_resource type="Texture2D" uid="uid://dyxt5lf1vsvui" path="res://Assets/Sprites/Rugpull/bg.png" id="3_xuu6n"]
+[ext_resource type="Texture2D" uid="uid://hvv316qtulho" path="res://Assets/Sprites/SpellingBee/bg.png" id="3_lh045"]
 [ext_resource type="FontFile" uid="uid://r1j2w1tvsuqk" path="res://Assets/Fonts/comic.ttf" id="4_02kyr"]
+[ext_resource type="Texture2D" uid="uid://c66f3kyml7a0i" path="res://Assets/Sprites/SpellingBee/kronii_puppet.png" id="4_ao7to"]
 [ext_resource type="Texture2D" uid="uid://cr4krb7205jv0" path="res://Assets/Sprites/SpellingBee/Miss.png" id="4_xuu6n"]
 [ext_resource type="Texture2D" uid="uid://bitugfdurl0ak" path="res://Assets/Sprites/SpellingBee/fire.png" id="6_lh045"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd731"]
+atlas = ExtResource("4_ao7to")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3jg5"]
+atlas = ExtResource("4_ao7to")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncdoi"]
+atlas = ExtResource("4_ao7to")
+region = Rect2(512, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru2cs"]
+atlas = ExtResource("4_ao7to")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru2cs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd731")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3jg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncdoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru2cs")
+}],
+"loop": false,
+"name": &"talk",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao7to"]
+atlas = ExtResource("6_lh045")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05g4u"]
+atlas = ExtResource("6_lh045")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pem4i"]
+atlas = ExtResource("6_lh045")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nykap"]
+atlas = ExtResource("6_lh045")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd731"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao7to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05g4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pem4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nykap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ao7to"]
+colors = PackedColorArray(0, 0, 0, 0.9411765, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05g4u"]
+gradient = SubResource("Gradient_ao7to")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8364486, 0.21962617)
 
 [sub_resource type="Animation" id="Animation_02kyr"]
 length = 0.001
@@ -85,114 +167,23 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ao7to"]
-atlas = ExtResource("6_lh045")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05g4u"]
-atlas = ExtResource("6_lh045")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pem4i"]
-atlas = ExtResource("6_lh045")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nykap"]
-atlas = ExtResource("6_lh045")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fd731"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ao7to")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_05g4u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pem4i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nykap")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="SpellingBee" instance=ExtResource("1_aysan")]
 
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_a045p")
 
-[node name="TextureRect" type="TextureRect" parent="Control" index="0"]
-offset_right = 256.0
-offset_bottom = 144.0
-texture = ExtResource("3_xuu6n")
-stretch_mode = 1
+[node name="Bg" type="Sprite2D" parent="Control" index="0"]
+position = Vector2(128, 72)
+texture = ExtResource("3_lh045")
 
-[node name="Your" type="Label" parent="Control" index="1"]
-offset_left = 59.999996
-offset_top = 40.0
-offset_right = 1440.0
-offset_bottom = 152.5
-scale = Vector2(0.1, 0.1)
-theme_override_fonts/font = ExtResource("4_02kyr")
-theme_override_font_sizes/font_size = 72
-text = "YOUR WORD IS:"
-horizontal_alignment = 1
+[node name="PuppetKronii" type="AnimatedSprite2D" parent="Control" index="1"]
+position = Vector2(128, 68)
+sprite_frames = SubResource("SpriteFrames_ru2cs")
+animation = &"talk"
+frame = 3
+frame_progress = 1.0
 
-[node name="Word" type="Label" parent="Control" index="2"]
-offset_left = 4.0
-offset_top = 48.0
-offset_right = 1386.0
-offset_bottom = 160.5
-scale = Vector2(0.18, 0.18)
-theme_override_fonts/font = ExtResource("4_02kyr")
-theme_override_font_sizes/font_size = 64
-text = "SUPERCALIFRAGILISTICEXPIALIDOCIOUS"
-horizontal_alignment = 1
-
-[node name="Anwser" type="Label" parent="Control" index="3"]
-modulate = Color(1, 0, 0, 1)
-offset_left = 4.0
-offset_top = 65.0
-offset_right = 1384.0
-offset_bottom = 177.5
-scale = Vector2(0.18, 0.18)
-theme_override_fonts/font = ExtResource("4_02kyr")
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-
-[node name="Miss" type="Sprite2D" parent="Control" index="4"]
-position = Vector2(128, -32)
-texture = ExtResource("4_xuu6n")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="5"]
-libraries = {
-&"": SubResource("AnimationLibrary_lh045")
-}
-
-[node name="Confetti" type="CPUParticles2D" parent="Control" index="6"]
-position = Vector2(128, 66)
-emitting = false
-amount = 32
-texture = SubResource("GradientTexture2D_xuu6n")
-one_shot = true
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 200)
-initial_velocity_min = 100.0
-initial_velocity_max = 200.0
-angle_max = 360.0
-color = Color(1, 0.66999996, 0.66999996, 1)
-color_ramp = SubResource("Gradient_02kyr")
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-hue_variation_curve = SubResource("Curve_lh045")
-
-[node name="Fire" type="Node2D" parent="Control" index="7"]
+[node name="Fire" type="Node2D" parent="Control" index="2"]
 position = Vector2(32, 176)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Fire" index="0"]
@@ -214,6 +205,81 @@ position = Vector2(192, 0)
 sprite_frames = SubResource("SpriteFrames_fd731")
 autoplay = "default"
 
+[node name="TextureRect" type="TextureRect" parent="Control" index="3"]
+offset_top = 80.0
+offset_right = 256.0
+offset_bottom = 144.0
+texture = SubResource("GradientTexture2D_05g4u")
+
+[node name="Your" type="Label" parent="Control" index="4"]
+offset_left = 59.999996
+offset_top = 96.0
+offset_right = 1440.0
+offset_bottom = 208.5
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5647059)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("4_02kyr")
+theme_override_font_sizes/font_size = 72
+text = "YOUR WORD IS:"
+horizontal_alignment = 1
+
+[node name="Word" type="Label" parent="Control" index="5"]
+offset_left = 4.0
+offset_top = 103.999985
+offset_right = 1386.0
+offset_bottom = 216.5
+scale = Vector2(0.18, 0.18)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5647059)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("4_02kyr")
+theme_override_font_sizes/font_size = 64
+text = "SUPERCALIFRAGILISTICEXPIALIDOCIOUS"
+horizontal_alignment = 1
+
+[node name="Anwser" type="Label" parent="Control" index="6"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 4.0
+offset_top = 118.999985
+offset_right = 1384.0
+offset_bottom = 231.5
+scale = Vector2(0.18, 0.18)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5647059)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("4_02kyr")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+
+[node name="Miss" type="Sprite2D" parent="Control" index="7"]
+position = Vector2(128, -32)
+texture = ExtResource("4_xuu6n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_lh045")
+}
+
+[node name="Confetti" type="CPUParticles2D" parent="Control" index="9"]
+position = Vector2(128, 66)
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_xuu6n")
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angle_max = 360.0
+color = Color(1, 0.66999996, 0.66999996, 1)
+color_ramp = SubResource("Gradient_02kyr")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_lh045")
+
 [node name="EndTimer" parent="." index="1"]
 wait_time = 12.0
 
@@ -222,7 +288,7 @@ offset_top = 140.0
 offset_bottom = 144.0
 
 [node name="InputHint" parent="." index="3"]
-position = Vector2(128, 104)
+position = Vector2(128, 35)
 animation = &"keyboard"
 frame_progress = 0.0
 

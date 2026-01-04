@@ -35,6 +35,9 @@ const messages = [
 	"Have my life savings",
 	"I run out of ideas",
 	"MY DOG JUST DIED LETSGOOOOOOOO!!!",
+	"Will you marry me?",
+	"PLEASE DON'T GRADUATE",
+	"I will miss you Kronii"
 ]
 
 @onready var username: Label = $Username

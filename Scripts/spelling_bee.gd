@@ -5,6 +5,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var confetti: CPUParticles2D = $Confetti
 @onready var minigame: Minigame = $".."
+@onready var puppet_kronii: AnimatedSprite2D = $PuppetKronii
 
 const words = [
 	"SUPERCALIFRAGILISTICEXPIALIDOCIOUS",
@@ -40,6 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if ch.length() == 1 and !Globals.last_minigame_won:
 			typed += ch
 			anwser.text = typed
+			puppet_kronii.play("talk")
 			if !word.begins_with(typed) and !missed:
 				animation_player.play("miss")
 				minigame.done = true
