@@ -1,43 +1,43 @@
 [gd_scene load_steps=13 format=3 uid="uid://bnqhejfut3w7b"]
 
 [ext_resource type="Script" uid="uid://deq4n12lu8a3j" path="res://Scripts/main.gd" id="1_3ietj"]
-[ext_resource type="Texture2D" uid="uid://c2jdiexj4wntx" path="res://Assets/Sprites/temp_angry_reaction.png" id="2_lcg5u"]
-[ext_resource type="Texture2D" uid="uid://dt4m6sja71wo1" path="res://Assets/Sprites/temp_default_reaction.png" id="3_00b8s"]
-[ext_resource type="Texture2D" uid="uid://dlvgmc8fhttan" path="res://Assets/Sprites/temp_happy_reaction.png" id="4_35h1h"]
+[ext_resource type="Texture2D" uid="uid://ptdf3eam870f" path="res://Assets/Sprites/Kronii/kronii-angry-sheet.png" id="2_lcg5u"]
+[ext_resource type="Texture2D" uid="uid://c4d62y3ml6bk2" path="res://Assets/Sprites/Kronii/kronii neutral-Sheet.png" id="3_00b8s"]
+[ext_resource type="Texture2D" uid="uid://b53lrkynpkp3m" path="res://Assets/Sprites/Kronii/kronii-victory-sheet.png" id="4_3ietj"]
 [ext_resource type="PackedScene" uid="uid://b4w0xm4p43dyl" path="res://Scenes/Schedule/weekday.tscn" id="5_h2ku8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
 atlas = ExtResource("2_lcg5u")
-region = Rect2(0, 0, 100, 100)
+region = Rect2(0, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2ku8"]
 atlas = ExtResource("2_lcg5u")
-region = Rect2(100, 0, 100, 100)
+region = Rect2(112, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ietj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojobo"]
 atlas = ExtResource("3_00b8s")
-region = Rect2(0, 0, 100, 100)
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20043"]
+atlas = ExtResource("3_00b8s")
+region = Rect2(112, 0, 112, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcg5u"]
-atlas = ExtResource("3_00b8s")
-region = Rect2(100, 0, 100, 100)
+atlas = ExtResource("4_3ietj")
+region = Rect2(0, 0, 112, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00b8s"]
-atlas = ExtResource("4_35h1h")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
-atlas = ExtResource("4_35h1h")
-region = Rect2(100, 0, 100, 100)
+atlas = ExtResource("4_3ietj")
+region = Rect2(112, 0, 112, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jkdf5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_344ge")
+"texture": SubResource("AtlasTexture_35h1h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ynf5e")
+"texture": SubResource("AtlasTexture_h2ku8")
 }],
 "loop": true,
 "name": &"angry",
@@ -45,10 +45,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ietj")
+"texture": SubResource("AtlasTexture_ojobo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lcg5u")
+"texture": SubResource("AtlasTexture_20043")
 }],
 "loop": true,
 "name": &"default",
@@ -56,10 +56,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00b8s")
+"texture": SubResource("AtlasTexture_lcg5u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_35h1h")
+"texture": SubResource("AtlasTexture_00b8s")
 }],
 "loop": true,
 "name": &"happy",
@@ -90,11 +90,12 @@ wait_time = 3.0
 one_shot = true
 
 [node name="LiveKronersReaction" type="AnimatedSprite2D" parent="."]
-position = Vector2(235.00002, 317)
+position = Vector2(232.00002, 313)
 scale = Vector2(3.7, 3.7)
 sprite_frames = SubResource("SpriteFrames_jkdf5")
-animation = &"angry"
+animation = &"happy"
 autoplay = "default"
+frame_progress = 0.81463635
 
 [node name="Schedule" type="VBoxContainer" parent="."]
 offset_left = 842.0
