@@ -6,12 +6,14 @@ enum InputType {KEYBOARD, MOUSE}
 @export var progress_bar: ProgressBar
 @export var input_hint: AnimatedSprite2D
 @export var input_type: InputType
+@export var ending_time: float
 
 var scene_file: String
 var title: String
 var description: String
-var progress: float
 var done: bool
+var ending: bool
+var progress: float
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -34,8 +36,21 @@ func _process(delta: float) -> void:
 	if Input.is_anything_pressed():
 		input_hint.visible = false
 	
-	progress = end_timer.wait_time - end_timer.time_left
-	progress_bar.value = progress
+	# 
+	if done:
+		if end_timer.time_left > ending_time:
+			end_timer.stop()
+			end_timer.wait_time = ending_time
+			ending = true
+			progress = progress_bar.value / progress_bar.max_value
+			progress_bar.max_value = progress + ending_time
+			end_timer.start()
+		done = false
+	
+	if ending:
+		progress_bar.value = progress + end_timer.wait_time - end_timer.time_left
+	else:
+		progress_bar.value = end_timer.wait_time - end_timer.time_left
 	
 	if end_timer.time_left <= 0:
 		# Progress the week

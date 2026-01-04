@@ -6,6 +6,25 @@ const usernames = [
 	"@gogibahp",
 	"@isaidmaybe",
 	"@EatingMikeTysonsAss",
+	"@KFP_Employee",
+	"@Deadbeat",
+	"@Takodachi",
+	"@Teamate",
+	"@Chumbuddy",
+	"@Irystocrat",
+	"@Brat",
+	"@Kronie",
+	"@Last_Kronie",
+	"@Sapling",
+	"@Hooman",
+	"@Sanalite",
+	"@Novelite",
+	"@Pebble",
+	"@Ruffian",
+	"@Rosarian",
+	"@Grem",
+	"@Otomo",
+	"@Chattini",
 ]
 
 const messages = [
@@ -14,7 +33,8 @@ const messages = [
 	"Otsu~!",
 	"Have a great stream!",
 	"Have my life savings",
-	"I run out of ideas"
+	"I run out of ideas",
+	"MY DOG JUST DIED LETSGOOOOOOOO!!!",
 ]
 
 @onready var username: Label = $Username

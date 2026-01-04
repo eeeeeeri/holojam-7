@@ -45,6 +45,7 @@ script = ExtResource("1_mhhjm")
 end_timer = NodePath("EndTimer")
 progress_bar = NodePath("ProgressBar")
 input_hint = NodePath("InputHint")
+ending_time = 2.0
 
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 2.0
