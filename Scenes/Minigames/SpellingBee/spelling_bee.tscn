@@ -7,6 +7,33 @@
 [ext_resource type="Texture2D" uid="uid://cr4krb7205jv0" path="res://Assets/Sprites/SpellingBee/Miss.png" id="4_xuu6n"]
 [ext_resource type="Texture2D" uid="uid://bitugfdurl0ak" path="res://Assets/Sprites/SpellingBee/fire.png" id="6_lh045"]
 
+[sub_resource type="Animation" id="Animation_02kyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Miss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fire:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 176)]
+}
+
 [sub_resource type="Animation" id="Animation_xuu6n"]
 resource_name = "miss"
 length = 0.2
@@ -33,33 +60,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(32, 176), Vector2(32, 112)]
-}
-
-[sub_resource type="Animation" id="Animation_02kyr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Miss:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(128, -32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Fire:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(32, 176)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lh045"]
@@ -219,7 +219,6 @@ wait_time = 12.0
 
 [node name="ProgressBar" parent="." index="2"]
 offset_top = 140.0
-offset_right = 256.0
 offset_bottom = 144.0
 
 [node name="InputHint" parent="." index="3"]

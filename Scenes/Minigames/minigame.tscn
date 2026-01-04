@@ -52,8 +52,8 @@ one_shot = true
 autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_right = 256.0
+offset_bottom = 4.0
 theme_override_styles/background = SubResource("StyleBoxFlat_mhhjm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
 show_percentage = false

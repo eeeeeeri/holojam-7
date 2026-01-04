@@ -4,6 +4,7 @@ extends Node2D
 @onready var sell_button: TextureButton = $SellButton
 @onready var yes_dollar: CPUParticles2D = $YesDollar
 @onready var no_dollar: CPUParticles2D = $NoDollar
+@onready var minigame: Minigame = $".."
 var step := 0
 var value := 96
 var last_value := 96
@@ -27,4 +28,5 @@ func _on_sell_button_button_up() -> void:
 		yes_dollar.visible = true
 	else:
 		no_dollar.visible = true
+	minigame.done = true
 	sell_button.disabled = true

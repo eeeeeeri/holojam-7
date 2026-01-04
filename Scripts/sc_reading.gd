@@ -2,6 +2,7 @@ extends Node2D
 
 const SUPERCHAT = preload("uid://d16ukgas0boul")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var minigame: Minigame = $".."
 
 var superchats = []
 var sc_num := 0
@@ -25,4 +26,5 @@ func _process(delta: float) -> void:
 				animation_player.play("appear")
 				
 				Globals.last_minigame_won = true
+				minigame.done = true
 				won = true

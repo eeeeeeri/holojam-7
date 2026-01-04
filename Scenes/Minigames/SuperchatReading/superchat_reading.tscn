@@ -1,9 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cii6pkkh4uwrd"]
+[gd_scene load_steps=11 format=3 uid="uid://cy1bmab2km0gy"]
 
-[ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_3qr6b"]
+[ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_3qr6b"]
 [ext_resource type="Script" uid="uid://bbifh4gfejvog" path="res://Scripts/sc_reading.gd" id="2_31min"]
-[ext_resource type="Texture2D" uid="uid://c0unxk4fygp3e" path="res://Assets/Sprites/UI/keyboard.png" id="3_7jdb1"]
-[ext_resource type="Texture2D" uid="uid://nv0x041301yv" path="res://Assets/Sprites/UI/mouse.png" id="4_ig2qi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_31min"]
 font_size = 72
@@ -96,68 +94,27 @@ _data = {
 [sub_resource type="Gradient" id="Gradient_n3trh"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_oc4vs"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ivw6d"]
 gradient = SubResource("Gradient_n3trh")
 width = 1
 height = 2
 
-[sub_resource type="Gradient" id="Gradient_vbdyv"]
+[sub_resource type="Gradient" id="Gradient_7jdb1"]
 offsets = PackedFloat32Array(0.63013697, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="Curve" id="Curve_6hehb"]
+[sub_resource type="Curve" id="Curve_ig2qi"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31min"]
-bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivw6d"]
-bg_color = Color(1, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dejql"]
-atlas = ExtResource("4_ig2qi")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixgfj"]
-atlas = ExtResource("4_ig2qi")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n3hfy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_7jdb1")
-}],
-"loop": true,
-"name": &"keyboard",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dejql")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ixgfj")
-}],
-"loop": true,
-"name": &"mouse",
-"speed": 5.0
-}]
-
-[node name="SuperchatReading" type="Node2D" node_paths=PackedStringArray("end_timer", "progress_bar", "input_hint")]
-script = ExtResource("1_3qr6b")
-end_timer = NodePath("EndTimer")
-progress_bar = NodePath("ProgressBar")
-input_hint = NodePath("InputHint")
+[node name="SuperchatReading" instance=ExtResource("1_3qr6b")]
 input_type = 1
-metadata/_custom_type_script = "uid://hf46e0e1jr46"
 
-[node name="Control" type="Node2D" parent="."]
+[node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_31min")
 
-[node name="AllDone" type="Label" parent="Control"]
+[node name="AllDone" type="Label" parent="Control" index="0"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,17 +134,17 @@ label_settings = SubResource("LabelSettings_31min")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="1"]
 root_node = NodePath("../AllDone")
 libraries = {
 &"": SubResource("AnimationLibrary_7jdb1")
 }
 
-[node name="Confetti" type="CPUParticles2D" parent="Control"]
+[node name="Confetti" type="CPUParticles2D" parent="Control" index="2"]
 position = Vector2(0, -54)
 emitting = false
 amount = 32
-texture = SubResource("GradientTexture2D_oc4vs")
+texture = SubResource("GradientTexture2D_ivw6d")
 one_shot = true
 explosiveness = 1.0
 spread = 180.0
@@ -196,30 +153,23 @@ initial_velocity_min = 100.0
 initial_velocity_max = 200.0
 angle_max = 360.0
 color = Color(1, 0.66999996, 0.66999996, 1)
-color_ramp = SubResource("Gradient_vbdyv")
+color_ramp = SubResource("Gradient_7jdb1")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
-hue_variation_curve = SubResource("Curve_6hehb")
+hue_variation_curve = SubResource("Curve_ig2qi")
 
-[node name="EndTimer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
-autostart = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." index="1"]
 position = Vector2(0, -54)
 zoom = Vector2(4.5, 4.5)
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="EndTimer" parent="." index="2"]
+wait_time = 4.0
+
+[node name="ProgressBar" parent="." index="3"]
 offset_left = -128.0
 offset_top = 14.0
 offset_right = 128.0
 offset_bottom = 18.0
-theme_override_styles/background = SubResource("StyleBoxFlat_31min")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ivw6d")
-show_percentage = false
 
-[node name="InputHint" type="AnimatedSprite2D" parent="."]
+[node name="InputHint" parent="." index="4"]
 position = Vector2(0, -54)
-sprite_frames = SubResource("SpriteFrames_n3hfy")
-animation = &"mouse"

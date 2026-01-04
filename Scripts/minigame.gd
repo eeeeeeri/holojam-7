@@ -10,7 +10,8 @@ enum InputType {KEYBOARD, MOUSE}
 var scene_file: String
 var title: String
 var description: String
-var played: bool
+var progress: float
+var done: bool
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -29,13 +30,14 @@ func _ready() -> void:
 			input_hint.play("mouse")
 
 func _process(delta: float) -> void:
-	progress_bar.value = end_timer.wait_time - end_timer.time_left
 	
 	if Input.is_anything_pressed():
 		input_hint.visible = false
 	
+	progress = end_timer.wait_time - end_timer.time_left
+	progress_bar.value = progress
+	
 	if end_timer.time_left <= 0:
-		
 		# Progress the week
 		if Globals.today == Globals.WeekDay.SUN:
 			Globals.today = Globals.WeekDay.MON

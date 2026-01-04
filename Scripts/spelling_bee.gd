@@ -4,6 +4,7 @@ extends Node2D
 @onready var anwser: Label = $Anwser
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var confetti: CPUParticles2D = $Confetti
+@onready var minigame: Minigame = $".."
 
 const words = [
 	"SUPERCALIFRAGILISTICEXPIALIDOCIOUS",
@@ -41,8 +42,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			anwser.text = typed
 			if !word.begins_with(typed) and !missed:
 				animation_player.play("miss")
+				minigame.done = true
 				missed = true
 			if word == typed:
 				Globals.last_minigame_won = true
+				minigame.done = true
 				anwser.modulate = Color.GREEN
 				confetti.emitting = true
