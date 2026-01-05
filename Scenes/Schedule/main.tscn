@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnqhejfut3w7b"]
+[gd_scene load_steps=14 format=3 uid="uid://bnqhejfut3w7b"]
 
 [ext_resource type="Script" uid="uid://deq4n12lu8a3j" path="res://Scripts/main.gd" id="1_3ietj"]
 [ext_resource type="Texture2D" uid="uid://ptdf3eam870f" path="res://Assets/Sprites/Kronii/kronii-angry-sheet.png" id="2_lcg5u"]
 [ext_resource type="Texture2D" uid="uid://c4d62y3ml6bk2" path="res://Assets/Sprites/Kronii/kronii neutral-Sheet.png" id="3_00b8s"]
 [ext_resource type="Texture2D" uid="uid://b53lrkynpkp3m" path="res://Assets/Sprites/Kronii/kronii-victory-sheet.png" id="4_3ietj"]
 [ext_resource type="PackedScene" uid="uid://b4w0xm4p43dyl" path="res://Scenes/Schedule/weekday.tscn" id="5_h2ku8"]
+[ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Pause/pause.tscn" id="6_lcg5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
 atlas = ExtResource("2_lcg5u")
@@ -129,6 +130,10 @@ weekday = 5
 [node name="WeekDay7" parent="Schedule" instance=ExtResource("5_h2ku8")]
 layout_mode = 2
 weekday = 6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("6_lcg5u")]
 
 [connection signal="timeout" from="Reaction" to="." method="_on_reaction_timeout"]
 [connection signal="timeout" from="NextMinigame" to="." method="_on_next_minigame_timeout"]
