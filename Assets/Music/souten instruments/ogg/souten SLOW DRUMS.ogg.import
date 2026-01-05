@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkfis46mau60c"
+path="res://.godot/imported/souten SLOW DRUMS.ogg-72f4ca94a4eea78e3f09af4d998dea3f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/souten instruments/ogg/souten SLOW DRUMS.ogg"
+dest_files=["res://.godot/imported/souten SLOW DRUMS.ogg-72f4ca94a4eea78e3f09af4d998dea3f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
