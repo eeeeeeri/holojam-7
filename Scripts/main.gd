@@ -52,5 +52,4 @@ func _on_reaction_timeout() -> void:
 
 func _on_next_minigame_timeout() -> void:
 	Globals.last_minigame_won = false
-	
 	CutoutTransition.transition_scene(Globals.current_minigame.scene_file)

@@ -14,6 +14,7 @@ var description: String
 var done: bool
 var ending: bool
 var progress: float
+var transitioning = false
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -52,12 +53,13 @@ func _process(delta: float) -> void:
 	else:
 		progress_bar.value = end_timer.wait_time - end_timer.time_left
 	
-	if end_timer.time_left <= 0:
+	if end_timer.time_left <= 0  && !transitioning:
 		# Progress the week
 		if Globals.today == Globals.WeekDay.SUN:
 			Globals.today = Globals.WeekDay.MON
 			Globals.week_minigames.clear()
 		else:
 			Globals.today += 1
-		
+
+		transitioning = true
 		CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
