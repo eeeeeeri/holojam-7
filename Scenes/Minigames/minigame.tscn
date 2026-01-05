@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bws7safjar52n"]
+[gd_scene load_steps=10 format=3 uid="uid://bws7safjar52n"]
 
 [ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_mhhjm"]
 [ext_resource type="Texture2D" uid="uid://c0unxk4fygp3e" path="res://Assets/Sprites/UI/keyboard.png" id="2_dalvu"]
 [ext_resource type="Texture2D" uid="uid://nv0x041301yv" path="res://Assets/Sprites/UI/mouse.png" id="3_el53e"]
+[ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Pause/pause.tscn" id="4_el53e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhhjm"]
 bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
@@ -63,5 +64,9 @@ show_percentage = false
 sprite_frames = SubResource("SpriteFrames_tqkln")
 animation = &"mouse"
 frame_progress = 0.7317974
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_el53e")]
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

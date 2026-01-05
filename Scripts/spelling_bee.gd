@@ -24,7 +24,8 @@ const words = [
 	"DISCOMBOBULATE",
 	"HEMORRHOID",
 	"AQUEDUCT",
-	"AFFIDAVIT"
+	"AFFIDAVIT",
+	"GWAKKKKKKKKKK",
 ]
 
 var word := ""
