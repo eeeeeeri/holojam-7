@@ -60,4 +60,4 @@ func _process(delta: float) -> void:
 		else:
 			Globals.today += 1
 		
-		get_tree().change_scene_to_file("res://Scenes/Schedule/main.tscn")
+		CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")

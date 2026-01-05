@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://785imwgj188q"]
+
+[ext_resource type="Shader" uid="uid://bgowe5l8fob4e" path="res://Assets/Shaders/CutoutTranistion.gdshader" id="2_egsgs"]
+[ext_resource type="Script" uid="uid://dma0ebc5aobfy" path="res://Scripts/cutout_transition.gd" id="2_vsiwg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t822c"]
+shader = ExtResource("2_egsgs")
+shader_parameter/circle_size = 1.0
+
+[sub_resource type="Animation" id="Animation_7fx3s"]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7rnvo"]
+resource_name = "Open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixrt4"]
+_data = {
+&"Close": SubResource("Animation_7fx3s"),
+&"Open": SubResource("Animation_7rnvo")
+}
+
+[node name="CutoutTransition" type="CanvasLayer"]
+script = ExtResource("2_vsiwg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_t822c")
+offset_right = 1153.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+&"": SubResource("AnimationLibrary_ixrt4")
+}

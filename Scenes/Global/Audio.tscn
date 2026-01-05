@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0rve1v4qj57n"]
 
-[ext_resource type="Script" uid="uid://dbc8edioaskpb" path="res://Scenes/Global/global_audio.gd" id="1_e7n23"]
+[ext_resource type="Script" uid="uid://dbc8edioaskpb" path="res://Scripts/global_audio.gd" id="1_e7n23"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 volume_db = -50.0
