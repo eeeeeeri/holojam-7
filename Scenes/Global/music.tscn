@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0rve1v4qj57n"]
+[gd_scene load_steps=9 format=3 uid="uid://drilqmg6k21j8"]
 
 [ext_resource type="AudioStream" uid="uid://ggyn1tdwd7dl" path="res://Assets/Music/souten instruments/ogg/souten LOUD NO VOX.ogg" id="1_wc72d"]
 [ext_resource type="AudioStream" uid="uid://bsl15k4nd05qu" path="res://Assets/Music/souten instruments/ogg/souten LOUD VOX.ogg" id="2_jojkb"]

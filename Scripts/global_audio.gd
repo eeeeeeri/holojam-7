@@ -3,13 +3,8 @@ extends AudioStreamPlayer
 @onready var st = stream as AudioStreamSynchronized
 @onready var trans_timer: Timer = $TransTimer
 
-func _play_music(music: AudioStream, volume = -5.0):
-	if stream == music:
-		return
-	stream = music
-	
-	volume_db = volume
-	play()
+enum Melody {NONE, LOUD_NO_VOX, LOUD_VOX, QUIET_SPACE, QUIET}
+enum Drums {NONE, FAST, SLOW}
 
 var melody_playing : Melody
 var drums_playing : Drums
