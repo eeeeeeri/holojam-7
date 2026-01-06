@@ -110,6 +110,8 @@ point_count = 2
 
 [node name="SuperchatReading" instance=ExtResource("1_3qr6b")]
 input_type = 1
+melody = 4
+drums = 1
 
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_31min")

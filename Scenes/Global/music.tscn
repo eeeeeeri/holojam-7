@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0rve1v4qj57n"]
+
+[ext_resource type="AudioStream" uid="uid://ggyn1tdwd7dl" path="res://Assets/Music/souten instruments/ogg/souten LOUD NO VOX.ogg" id="1_wc72d"]
+[ext_resource type="AudioStream" uid="uid://bsl15k4nd05qu" path="res://Assets/Music/souten instruments/ogg/souten LOUD VOX.ogg" id="2_jojkb"]
+[ext_resource type="AudioStream" uid="uid://7hqgf4bxpwda" path="res://Assets/Music/souten instruments/ogg/souten QUIET SPACE.ogg" id="3_lrydu"]
+[ext_resource type="AudioStream" uid="uid://cxmknya6n0emy" path="res://Assets/Music/souten instruments/ogg/souten QUIET.ogg" id="4_uhdd0"]
+[ext_resource type="AudioStream" uid="uid://cnoqoydhhihrh" path="res://Assets/Music/souten instruments/ogg/souten FAST DRUMS.ogg" id="5_ljaja"]
+[ext_resource type="AudioStream" uid="uid://bkfis46mau60c" path="res://Assets/Music/souten instruments/ogg/souten SLOW DRUMS.ogg" id="6_eabxx"]
+[ext_resource type="Script" uid="uid://dbc8edioaskpb" path="res://Scripts/global_audio.gd" id="7_81af6"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_fyv20"]
+stream_count = 6
+stream_0/stream = ExtResource("1_wc72d")
+stream_0/volume = -60.0
+stream_1/stream = ExtResource("2_jojkb")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("3_lrydu")
+stream_2/volume = -60.0
+stream_3/stream = ExtResource("4_uhdd0")
+stream_3/volume = -60.0
+stream_4/stream = ExtResource("5_ljaja")
+stream_4/volume = -60.0
+stream_5/stream = ExtResource("6_eabxx")
+stream_5/volume = -60.0
+
+[node name="Music" type="AudioStreamPlayer"]
+process_mode = 3
+stream = SubResource("AudioStreamSynchronized_fyv20")
+autoplay = true
+bus = &"Music"
+script = ExtResource("7_81af6")
+
+[node name="TransTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
