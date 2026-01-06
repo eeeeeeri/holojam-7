@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://Scripts/globals.gd"
+Audio="*res://Scenes/Global/Audio.tscn"
+CutoutTransition="*res://Scenes/Global/CutoutTransition.tscn"
 ConfigFileHandler="*res://Scripts/config_file_handler.gd"
 CutoutTransition="*res://Scenes/Global/CutoutTransition.tscn"
 Music="*res://Scenes/Global/music.tscn"
