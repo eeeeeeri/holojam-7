@@ -1,11 +1,13 @@
-extends PanelContainer
+extends Sprite2D
 
 @export var weekday : Globals.WeekDay
 var minigame : Minigame
+var today : bool
+var offline : bool
 
-@onready var label: Label = $HBoxContainer/Label
-@onready var title: Label = $HBoxContainer/Minigame/Title
-@onready var description: Label = $HBoxContainer/Minigame/Description
+@onready var label: Label = $Label
+@onready var title: Label = $Title
+@onready var description: Label = $Description
 
 func _ready() -> void:
 	
