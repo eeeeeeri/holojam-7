@@ -7,6 +7,8 @@ enum InputType {KEYBOARD, MOUSE}
 @export var input_hint: AnimatedSprite2D
 @export var input_type: InputType
 @export var ending_time: float
+@export var melody: Music.Melody
+@export var drums: Music.Drums
 
 var scene_file: String
 var title: String
@@ -24,6 +26,8 @@ static func minigame(new_scene_file: String, new_title: String, new_description:
 	return new_minigame
 
 func _ready() -> void:
+	Music.play_tracks(melody,drums)
+	
 	progress_bar.max_value = end_timer.wait_time
 	
 	match input_type:
@@ -37,7 +41,6 @@ func _process(delta: float) -> void:
 	if Input.is_anything_pressed():
 		input_hint.visible = false
 	
-	# 
 	if done:
 		if end_timer.time_left > ending_time:
 			end_timer.stop()

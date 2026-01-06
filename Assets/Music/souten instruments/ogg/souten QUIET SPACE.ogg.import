@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://7hqgf4bxpwda"
+path="res://.godot/imported/souten QUIET SPACE.ogg-a64486cb1708c4a2309455afbb43071f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/souten instruments/ogg/souten QUIET SPACE.ogg"
+dest_files=["res://.godot/imported/souten QUIET SPACE.ogg-a64486cb1708c4a2309455afbb43071f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

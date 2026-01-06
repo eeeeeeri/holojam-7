@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnoqoydhhihrh"
+path="res://.godot/imported/souten FAST DRUMS.ogg-d8a5374f5df9dd34c8a55cfcc48bb23d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/souten instruments/ogg/souten FAST DRUMS.ogg"
+dest_files=["res://.godot/imported/souten FAST DRUMS.ogg-d8a5374f5df9dd34c8a55cfcc48bb23d.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
