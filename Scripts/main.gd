@@ -1,16 +1,16 @@
 extends Node2D
 
-@onready var live_kroners_reaction: AnimatedSprite2D = $LiveKronersReaction
+@onready var live_kroners_reaction: AnimatedSprite2D = $CircleMask/LiveKronersReaction
 @onready var reaction: Timer = $Reaction
 @onready var next_minigame: Timer = $NextMinigame
 @onready var tasks_left: Label = $TasksLeft
 @onready var days_left: Label = $DaysLeft
-@onready var schedule: VBoxContainer = $Schedule
+@onready var schedule: Node2D = $Schedule
 
 
 func _ready() -> void:
 	
-	Music.play_tracks(Music.Melody.LOUD_NO_VOX, Music.Drums.FAST)
+	Music.play_tracks(Music.Melody.LOUD_VOX, Music.Drums.FAST)
 	# Kronii Reaction
 	if Globals.first_minigame:
 		live_kroners_reaction.animation = "default"

@@ -26,21 +26,6 @@ func _process(delta: float) -> void:
 	in_vol = MAX_VOL
 	out_vol = ZERO_VOL
 	
-	match melody_playing:
-		Melody.LOUD_NO_VOX:
-			stream.set_sync_stream_volume(0, in_vol)
-		Melody.LOUD_VOX:
-			stream.set_sync_stream_volume(1, in_vol)
-		Melody.QUIET_SPACE:
-			stream.set_sync_stream_volume(2, in_vol)
-		Melody.QUIET:
-			stream.set_sync_stream_volume(3, in_vol)
-	match drums_playing:
-		Drums.FAST:
-			stream.set_sync_stream_volume(4, in_vol)
-		Drums.SLOW:
-			stream.set_sync_stream_volume(5, in_vol)
-	
 	match last_melody:
 		Melody.LOUD_NO_VOX:
 			stream.set_sync_stream_volume(0, out_vol)
@@ -50,11 +35,28 @@ func _process(delta: float) -> void:
 			stream.set_sync_stream_volume(2, out_vol)
 		Melody.QUIET:
 			stream.set_sync_stream_volume(3, out_vol)
+	
 	match last_drums:
 		Drums.FAST:
 			stream.set_sync_stream_volume(4, out_vol)
 		Drums.SLOW:
 			stream.set_sync_stream_volume(5, out_vol)
+	
+	match melody_playing:
+		Melody.LOUD_NO_VOX:
+			stream.set_sync_stream_volume(0, in_vol)
+		Melody.LOUD_VOX:
+			stream.set_sync_stream_volume(1, in_vol)
+		Melody.QUIET_SPACE:
+			stream.set_sync_stream_volume(2, in_vol)
+		Melody.QUIET:
+			stream.set_sync_stream_volume(3, in_vol)
+	
+	match drums_playing:
+		Drums.FAST:
+			stream.set_sync_stream_volume(4, in_vol)
+		Drums.SLOW:
+			stream.set_sync_stream_volume(5, in_vol)
 
 func play_tracks(melody: Melody, drums: Drums):
 	last_melody = melody_playing
