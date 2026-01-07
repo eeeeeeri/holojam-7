@@ -31,7 +31,7 @@ text = "NAME"
 [node name="Description" type="Label" parent="."]
 offset_left = -124.0
 offset_top = -17.0
-offset_right = 118.0
+offset_right = 166.0
 offset_bottom = 54.0
 theme_override_constants/line_spacing = -4
 theme_override_font_sizes/font_size = 24

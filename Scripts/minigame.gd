@@ -3,6 +3,7 @@ class_name Minigame extends Node2D
 enum InputType {KEYBOARD, MOUSE}
 
 @export var end_timer : Timer
+@export var hint_timer: Timer
 @export var progress_bar: ProgressBar
 @export var input_hint: AnimatedSprite2D
 @export var input_type: InputType
@@ -38,7 +39,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if Input.is_anything_pressed():
+	if Input.is_anything_pressed() or hint_timer.time_left <= 0:
 		input_hint.visible = false
 	
 	if done:
