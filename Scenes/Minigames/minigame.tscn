@@ -5,12 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://nv0x041301yv" path="res://Assets/Sprites/UI/mouse.png" id="3_el53e"]
 [ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Pause/pause.tscn" id="4_el53e"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhhjm"]
-bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33s2o"]
-bg_color = Color(1, 0, 0, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dejql"]
 atlas = ExtResource("3_el53e")
 region = Rect2(0, 0, 48, 48)
@@ -41,11 +35,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhhjm"]
+bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33s2o"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer", "hint_timer", "progress_bar", "input_hint")]
 script = ExtResource("1_mhhjm")
 end_timer = NodePath("EndTimer")
 hint_timer = NodePath("HintTimer")
-progress_bar = NodePath("ProgressBar")
+progress_bar = NodePath("CanvasLayer/ProgressBar")
 input_hint = NodePath("InputHint")
 ending_time = 2.0
 
@@ -58,19 +58,20 @@ autostart = true
 one_shot = true
 autostart = true
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_right = 256.0
-offset_bottom = 4.0
-theme_override_styles/background = SubResource("StyleBoxFlat_mhhjm")
-theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
-show_percentage = false
-
 [node name="InputHint" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tqkln")
 animation = &"mouse"
 frame_progress = 0.7317974
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_top = 630.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mhhjm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
+show_percentage = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("4_el53e")]
 

@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://enoufyvah3bk"]
+
+[ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_c6oxw"]
+[ext_resource type="Script" uid="uid://cn6hd6x06wepc" path="res://Scripts/outfit_reveal.gd" id="2_icxge"]
+[ext_resource type="Texture2D" uid="uid://dyxt5lf1vsvui" path="res://Assets/Sprites/Rugpull/bg.png" id="2_l73n2"]
+[ext_resource type="Texture2D" uid="uid://d3btfyhydqnsa" path="res://Assets/Sprites/OutfitReveal/temp_outfit.png" id="4_pbvc0"]
+
+[sub_resource type="Gradient" id="Gradient_n3trh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_icxge"]
+gradient = SubResource("Gradient_n3trh")
+width = 1
+height = 2
+
+[sub_resource type="Gradient" id="Gradient_pbvc0"]
+offsets = PackedFloat32Array(0.63013697, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_2oswx"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="OutfitReveal" instance=ExtResource("1_c6oxw")]
+input_type = 1
+ending_time = 1.0
+melody = 4
+drums = 2
+
+[node name="Control" type="Node2D" parent="." index="0"]
+script = ExtResource("2_icxge")
+
+[node name="TextureRect" type="TextureRect" parent="Control" index="0"]
+offset_right = 256.0
+offset_bottom = 144.0
+texture = ExtResource("2_l73n2")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="Control" index="1"]
+anchor_mode = 0
+zoom = Vector2(4.5, 4.5)
+
+[node name="Outfit" type="Sprite2D" parent="Control" index="2"]
+position = Vector2(128, -144)
+texture = ExtResource("4_pbvc0")
+hframes = 2
+
+[node name="Confetti" type="CPUParticles2D" parent="Control" index="3"]
+position = Vector2(128, 72)
+emitting = false
+amount = 32
+texture = SubResource("GradientTexture2D_icxge")
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angle_max = 360.0
+color = Color(1, 0.66999996, 0.66999996, 1)
+color_ramp = SubResource("Gradient_pbvc0")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_2oswx")
+
+[node name="InputHint" parent="." index="3"]
+position = Vector2(128, 72)
