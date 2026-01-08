@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	if !won:
 		if Input.is_action_just_pressed("left_mouse"):
 			read += 1
+			animation_player.play("sc_ty")
 			if read >= sc_num:
 				animation_player.play("appear")
 				

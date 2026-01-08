@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy1bmab2km0gy"]
+[gd_scene load_steps=14 format=3 uid="uid://cy1bmab2km0gy"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_3qr6b"]
 [ext_resource type="Script" uid="uid://bbifh4gfejvog" path="res://Scripts/sc_reading.gd" id="2_31min"]
+[ext_resource type="Texture2D" uid="uid://dvylfs0xwmvuv" path="res://Assets/Sprites/Schedule/menu_bg.png" id="3_7jdb1"]
+[ext_resource type="Texture2D" uid="uid://b53lrkynpkp3m" path="res://Assets/Sprites/Kronii/kronii-victory-sheet.png" id="4_ig2qi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_31min"]
 font_size = 72
@@ -44,6 +46,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Kronii:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_31min"]
 resource_name = "appear"
@@ -84,18 +98,47 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Kronii:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_n3hfy"]
+resource_name = "sc_ty"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Kronii:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jdb1"]
 _data = {
 &"RESET": SubResource("Animation_ivw6d"),
-&"appear": SubResource("Animation_31min")
+&"appear": SubResource("Animation_31min"),
+&"sc_ty": SubResource("Animation_n3hfy")
 }
 
-[sub_resource type="Gradient" id="Gradient_n3trh"]
+[sub_resource type="Gradient" id="Gradient_ljt7b"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ivw6d"]
-gradient = SubResource("Gradient_n3trh")
+gradient = SubResource("Gradient_ljt7b")
 width = 1
 height = 2
 
@@ -116,16 +159,26 @@ drums = 1
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_31min")
 
-[node name="AllDone" type="Label" parent="Control" index="0"]
+[node name="MenuBg" type="Sprite2D" parent="Control" index="0"]
+position = Vector2(-54, -54)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_7jdb1")
+
+[node name="Kronii" type="Sprite2D" parent="Control" index="1"]
+position = Vector2(-119, -45)
+texture = ExtResource("4_ig2qi")
+hframes = 2
+
+[node name="AllDone" type="Label" parent="Control" index="2"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.99999
+offset_left = -82.0
 offset_top = -74.0
-offset_right = 297.0
+offset_right = 289.0
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -136,14 +189,14 @@ label_settings = SubResource("LabelSettings_31min")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="3"]
 root_node = NodePath("../AllDone")
 libraries = {
 &"": SubResource("AnimationLibrary_7jdb1")
 }
 
-[node name="Confetti" type="CPUParticles2D" parent="Control" index="2"]
-position = Vector2(0, -54)
+[node name="Confetti" type="CPUParticles2D" parent="Control" index="4"]
+position = Vector2(-54, -54)
 emitting = false
 amount = 32
 texture = SubResource("GradientTexture2D_ivw6d")
@@ -162,16 +215,11 @@ hue_variation_curve = SubResource("Curve_ig2qi")
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 position = Vector2(0, -54)
+offset = Vector2(-54, 0)
 zoom = Vector2(4.5, 4.5)
 
 [node name="EndTimer" parent="." index="2"]
 wait_time = 4.0
 
-[node name="ProgressBar" parent="." index="3"]
-offset_left = -128.0
-offset_top = 14.0
-offset_right = 128.0
-offset_bottom = 18.0
-
 [node name="InputHint" parent="." index="4"]
-position = Vector2(0, -54)
+position = Vector2(-54, -54)
