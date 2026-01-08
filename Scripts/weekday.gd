@@ -30,6 +30,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
+	if weekday == Globals.today:
+		frame = 1
+	
+	if offline:
+		frame = 2
+		title.visible = false
+		description.visible = false
+	
 	if minigame:
 		title.text = minigame.title
 		description.text = minigame.description
