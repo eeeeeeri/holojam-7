@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b53lrkynpkp3m" path="res://Assets/Sprites/Kronii/kronii-victory-sheet.png" id="4_3ietj"]
 [ext_resource type="Texture2D" uid="uid://s2htc6nhelam" path="res://Assets/Sprites/Schedule/circle_mask.png" id="4_h2ku8"]
 [ext_resource type="PackedScene" uid="uid://b4w0xm4p43dyl" path="res://Scenes/Schedule/weekday.tscn" id="5_h2ku8"]
-[ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Pause/pause.tscn" id="6_lcg5u"]
+[ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Menu/pause.tscn" id="6_lcg5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
 atlas = ExtResource("2_lcg5u")
