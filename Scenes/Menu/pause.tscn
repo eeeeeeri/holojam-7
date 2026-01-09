@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://tdd4swejoeks"]
 
 [ext_resource type="Script" uid="uid://dle7iomh2wxod" path="res://Scripts/pause.gd" id="1_7owt2"]
-[ext_resource type="PackedScene" uid="uid://chrhpwpv0slvw" path="res://Scenes/Pause/volume_slider.tscn" id="3_y4k80"]
+[ext_resource type="PackedScene" uid="uid://chrhpwpv0slvw" path="res://Scenes/Menu/volume_slider.tscn" id="3_y4k80"]
 
 [node name="Pause" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,4 +82,10 @@ text = "SFX"
 layout_mode = 2
 bus_name = "SFX"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "QUIT"
+
 [connection signal="button_up" from="VBoxContainer/PauseButton" to="." method="_on_pause_button_button_up"]
+[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=4 format=3 uid="uid://qilinpa3inik"]
+
+[ext_resource type="Script" uid="uid://dlbyu62clxcu6" path="res://Scripts/main_menu.gd" id="1_tself"]
+[ext_resource type="Texture2D" uid="uid://dt4m6sja71wo1" path="res://Assets/Sprites/temp_default_reaction.png" id="2_7jtkx"]
+[ext_resource type="PackedScene" uid="uid://chrhpwpv0slvw" path="res://Scenes/Menu/volume_slider.tscn" id="3_7jtkx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tself")
+
+[node name="MainScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TempDefaultReaction" type="Sprite2D" parent="MainScreen"]
+position = Vector2(-718, -71)
+scale = Vector2(9.13, 3.86)
+texture = ExtResource("2_7jtkx")
+hframes = 2
+
+[node name="Label" type="Label" parent="MainScreen"]
+layout_mode = 0
+offset_left = -876.0
+offset_top = 159.0
+offset_right = -678.0
+offset_bottom = 182.0
+text = "KRONII GRADUATES!!!!!!!!!!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainScreen"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -91.0
+offset_right = 274.0
+offset_bottom = 91.0
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="StartButton" type="Button" parent="MainScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "START"
+
+[node name="SettingsButton" type="Button" parent="MainScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="MainScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "QUIT
+"
+
+[node name="SettingsScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -116.0
+offset_right = 205.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReturnButton" type="Button" parent="SettingsScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RETURN"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="SettingsScreen/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MASTER"
+
+[node name="VolumeSlider" parent="SettingsScreen/VBoxContainer/VBoxContainer" instance=ExtResource("3_7jtkx")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SettingsScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="SettingsScreen/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUSIC"
+
+[node name="VolumeSlider" parent="SettingsScreen/VBoxContainer/VBoxContainer2" instance=ExtResource("3_7jtkx")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="SettingsScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="SettingsScreen/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+
+[node name="VolumeSlider" parent="SettingsScreen/VBoxContainer/VBoxContainer3" instance=ExtResource("3_7jtkx")]
+layout_mode = 2
+bus_name = "SFX"
+
+[connection signal="button_down" from="MainScreen/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="MainScreen/VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="button_down" from="MainScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="button_down" from="SettingsScreen/VBoxContainer/ReturnButton" to="." method="_on_return_button_button_down"]
