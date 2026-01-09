@@ -62,6 +62,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "SETTINGS"
 
+[node name="CreditsButton" type="Button" parent="MainScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "CREDITS"
+
 [node name="QuitButton" type="Button" parent="MainScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
@@ -132,7 +137,53 @@ text = "SFX"
 layout_mode = 2
 bus_name = "SFX"
 
+[node name="CreditsScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.7843
+offset_top = -150.0
+offset_right = 167.7843
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Programming:
+- eri & Gogi
+
+Art:
+- eri, Gogi & Perks
+
+Music & SFX:
+- May"
+fit_content = true
+scroll_active = false
+
+[node name="ReturnButton2" type="Button" parent="CreditsScreen"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 40.0
+offset_right = 167.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 24
+text = "RETURN"
+
 [connection signal="button_down" from="MainScreen/VBoxContainer/StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="button_down" from="MainScreen/VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="button_down" from="MainScreen/VBoxContainer/CreditsButton" to="." method="_on_credits_button_button_down"]
 [connection signal="button_down" from="MainScreen/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
 [connection signal="button_down" from="SettingsScreen/VBoxContainer/ReturnButton" to="." method="_on_return_button_button_down"]
+[connection signal="button_down" from="CreditsScreen/ReturnButton2" to="." method="_on_return_button_button_down"]
