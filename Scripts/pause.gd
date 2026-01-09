@@ -26,3 +26,7 @@ func pause():
 
 func _on_pause_button_button_up() -> void:
 	resume()
+
+
+func _on_quit_button_button_down() -> void:
+	get_tree().quit()
