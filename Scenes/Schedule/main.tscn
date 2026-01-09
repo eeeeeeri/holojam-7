@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnqhejfut3w7b"]
+[gd_scene load_steps=18 format=3 uid="uid://bnqhejfut3w7b"]
 
 [ext_resource type="Script" uid="uid://deq4n12lu8a3j" path="res://Scripts/main.gd" id="1_3ietj"]
 [ext_resource type="Texture2D" uid="uid://dvylfs0xwmvuv" path="res://Assets/Sprites/Schedule/menu_bg.png" id="2_00b8s"]
@@ -9,13 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://s2htc6nhelam" path="res://Assets/Sprites/Schedule/circle_mask.png" id="4_h2ku8"]
 [ext_resource type="PackedScene" uid="uid://b4w0xm4p43dyl" path="res://Scenes/Schedule/weekday.tscn" id="5_h2ku8"]
 [ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Pause/pause.tscn" id="6_lcg5u"]
+[ext_resource type="Texture2D" uid="uid://d3qvt03r0bpce" path="res://Assets/Sprites/Kronii/kronii-angry-sheet1.png" id="6_ojobo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
 atlas = ExtResource("2_lcg5u")
 region = Rect2(0, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2ku8"]
-atlas = ExtResource("2_lcg5u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l1q0"]
+atlas = ExtResource("6_ojobo")
 region = Rect2(112, 0, 112, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojobo"]
@@ -41,7 +42,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_35h1h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2ku8")
+"texture": SubResource("AtlasTexture_3l1q0")
 }],
 "loop": true,
 "name": &"angry",
@@ -102,6 +103,7 @@ texture = ExtResource("4_h2ku8")
 position = Vector2(5, -5)
 scale = Vector2(2.2222223, 2.2222223)
 sprite_frames = SubResource("SpriteFrames_jkdf5")
+animation = &"angry"
 autoplay = "default"
 
 [node name="TasksLeft" type="Label" parent="."]
