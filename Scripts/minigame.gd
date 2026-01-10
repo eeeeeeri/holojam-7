@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 		progress_bar.value = end_timer.wait_time - end_timer.time_left
 	
 	if end_timer.time_left <= 0  && !transitioning:
+		
 		# Progress the week
 		if Globals.today == Globals.WeekDay.SUN:
 			Globals.today = Globals.WeekDay.MON

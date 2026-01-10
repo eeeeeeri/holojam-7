@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://26w4mchwjsbc"]
+
+[ext_resource type="Script" uid="uid://db5hfjhd4f54o" path="res://Scripts/obstacle.gd" id="1_xhcbr"]
+
+[node name="Obstacle" type="CharacterBody2D"]
+script = ExtResource("1_xhcbr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

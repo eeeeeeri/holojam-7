@@ -1,0 +1,201 @@
+[gd_scene load_steps=13 format=3 uid="uid://biic8wmvim6y2"]
+
+[ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_575jf"]
+[ext_resource type="Script" uid="uid://mjo8fle5djol" path="res://Scripts/driving.gd" id="2_ujrh7"]
+[ext_resource type="Texture2D" uid="uid://vd7swoi52m16" path="res://Assets/Sprites/DrivingInMyCar/sky.png" id="3_r2vwl"]
+[ext_resource type="Texture2D" uid="uid://cvwmag7ukg3h1" path="res://Assets/Sprites/DrivingInMyCar/ground.png" id="4_yuwrv"]
+[ext_resource type="Shader" uid="uid://b5nxr58oiu48j" path="res://Assets/Shaders/BlackAndWhite.gdshader" id="7_vxjed"]
+[ext_resource type="Texture2D" uid="uid://hjpmk60xosxf" path="res://Assets/Sprites/Kronii/default.png" id="8_tmufg"]
+
+[sub_resource type="Curve" id="Curve_575jf"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 4.0, 0, 1, Vector2(1, 4), 4.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_575jf"]
+radius = 12.0
+height = 64.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkr3t"]
+shader = ExtResource("7_vxjed")
+
+[sub_resource type="Animation" id="Animation_r2vwl"]
+resource_name = "KroniiDies"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KroniiDies:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KroniiDies/Kronii:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KroniiDies/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yuwrv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KroniiDies:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KroniiDies/Kronii:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KroniiDies/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxjed"]
+_data = {
+&"KroniiDies": SubResource("Animation_r2vwl"),
+&"RESET": SubResource("Animation_yuwrv")
+}
+
+[node name="DrivingInMyCar" instance=ExtResource("1_575jf")]
+melody = 2
+drums = 1
+
+[node name="Control" type="Node2D" parent="." index="0"]
+script = ExtResource("2_ujrh7")
+
+[node name="Sky" type="Sprite2D" parent="Control" index="0"]
+texture = ExtResource("3_r2vwl")
+centered = false
+
+[node name="Ground" type="Sprite2D" parent="Control" index="1"]
+texture = ExtResource("4_yuwrv")
+centered = false
+
+[node name="Road" type="Polygon2D" parent="Control" index="2"]
+color = Color(0.3843975, 0.34875017, 0.3579877, 1)
+polygon = PackedVector2Array(128, 64, 0, 144, 256, 144)
+uv = PackedVector2Array(128, 64, 0, 144, 256, 144)
+
+[node name="Camera2D" type="Camera2D" parent="Control" index="3"]
+position = Vector2(128, 72)
+zoom = Vector2(4.5, 4.5)
+
+[node name="Line" type="Line2D" parent="Control" index="4"]
+points = PackedVector2Array(128, 64, 128, 144)
+width = 1.0
+width_curve = SubResource("Curve_575jf")
+default_color = Color(0.9756667, 1, 0.26999998, 1)
+
+[node name="LeftLine" type="Line2D" parent="Control" index="5"]
+points = PackedVector2Array(128, 64, 0, 144)
+width = 1.0
+width_curve = SubResource("Curve_575jf")
+
+[node name="RightLine" type="Line2D" parent="Control" index="6"]
+points = PackedVector2Array(128, 64, 256, 144)
+width = 1.0
+width_curve = SubResource("Curve_575jf")
+
+[node name="TreeSpawner" type="Timer" parent="Control" index="7"]
+wait_time = 0.1
+autostart = true
+
+[node name="ObstacleSpawner" type="Timer" parent="Control" index="8"]
+autostart = true
+
+[node name="Obstacles" type="Node2D" parent="Control" index="9"]
+y_sort_enabled = true
+
+[node name="Car" type="Area2D" parent="Control" index="10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Car" index="0"]
+position = Vector2(128, 144)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_575jf")
+
+[node name="KroniiDies" type="ColorRect" parent="Control" index="11"]
+visible = false
+z_index = 20
+z_as_relative = false
+offset_right = 256.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 1)
+
+[node name="Kronii" type="Sprite2D" parent="Control/KroniiDies" index="0"]
+material = SubResource("ShaderMaterial_lkr3t")
+position = Vector2(69, 72)
+texture = ExtResource("8_tmufg")
+
+[node name="Label" type="Label" parent="Control/KroniiDies" index="1"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 33.0
+offset_right = 629.0
+offset_bottom = 336.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 72
+text = "Ouro Kronii
+* ∞
+† 1.000.000 AD"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="12"]
+libraries = {
+&"": SubResource("AnimationLibrary_vxjed")
+}
+
+[node name="EndTimer" parent="." index="1"]
+wait_time = 10.0
+
+[node name="InputHint" parent="." index="3"]
+position = Vector2(128, 72)
+
+[connection signal="timeout" from="Control/TreeSpawner" to="Control" method="_on_tree_spawner_timeout"]
+[connection signal="timeout" from="Control/ObstacleSpawner" to="Control" method="_on_obstacle_spawner_timeout"]
+[connection signal="body_entered" from="Control/Car" to="Control" method="_on_car_body_entered"]

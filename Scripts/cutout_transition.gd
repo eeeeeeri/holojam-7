@@ -19,4 +19,5 @@ func transition_scene(scene: String):
 	color_rect.visible = true
 	animation_player.play("Close")
 	await on_transition_finished
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"),false)
 	get_tree().change_scene_to_file(scene)
