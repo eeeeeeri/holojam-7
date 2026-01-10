@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ib0q14jmhhhq"]
+
+[ext_resource type="PackedScene" uid="uid://26w4mchwjsbc" path="res://Scenes/Minigames/DrivingInMyCar/obstacle.tscn" id="1_l735s"]
+[ext_resource type="Texture2D" uid="uid://dh0sr7nc5bprn" path="res://Assets/Sprites/DrivingInMyCar/tree.png" id="2_altj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25cvt"]
+size = Vector2(12, 8)
+
+[node name="Tree" instance=ExtResource("1_l735s")]
+speed = 4.0
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -28)
+texture = ExtResource("2_altj0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_25cvt")
