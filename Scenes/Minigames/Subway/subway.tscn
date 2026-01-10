@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ce5sbcx0phu6y"]
+[gd_scene load_steps=11 format=3 uid="uid://ce5sbcx0phu6y"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_w1evv"]
 [ext_resource type="Script" uid="uid://bugr2sayn4qr0" path="res://Scripts/subway.gd" id="2_g23eu"]
+[ext_resource type="Texture2D" uid="uid://dvylfs0xwmvuv" path="res://Assets/Sprites/Schedule/menu_bg.png" id="3_g23eu"]
 [ext_resource type="Texture2D" uid="uid://cqei4ilrn3n4c" path="res://Assets/Sprites/Subway/subway.png" id="3_mh3h2"]
-[ext_resource type="Texture2D" uid="uid://br4ayaoyimmjm" path="res://Assets/Sprites/Subway/temp-kronii.png" id="4_fwcwt"]
+[ext_resource type="Texture2D" uid="uid://bi47ujhjomn1e" path="res://Assets/Sprites/Subway/kronii.png" id="4_w1evv"]
 [ext_resource type="Texture2D" uid="uid://crxr1pltnpauf" path="res://Assets/Sprites/Subway/hand.png" id="5_ph38a"]
 
 [sub_resource type="Gradient" id="Gradient_n3trh"]
@@ -31,25 +32,30 @@ drums = 1
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_g23eu")
 
-[node name="Subway" type="Sprite2D" parent="Control" index="0"]
+[node name="MenuBg" type="Sprite2D" parent="Control" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_g23eu")
+centered = false
+
+[node name="Subway" type="Sprite2D" parent="Control" index="1"]
 position = Vector2(384, 72)
 texture = ExtResource("3_mh3h2")
 
-[node name="Kronii" type="Sprite2D" parent="Control" index="1"]
+[node name="Kronii" type="Sprite2D" parent="Control" index="2"]
 position = Vector2(128, 72)
-texture = ExtResource("4_fwcwt")
+texture = ExtResource("4_w1evv")
 hframes = 2
 
-[node name="Hand" type="Sprite2D" parent="Control" index="2"]
+[node name="Hand" type="Sprite2D" parent="Control" index="3"]
 texture = ExtResource("5_ph38a")
 centered = false
 offset = Vector2(-16, -16)
 
-[node name="Camera2D" type="Camera2D" parent="Control" index="3"]
+[node name="Camera2D" type="Camera2D" parent="Control" index="4"]
 anchor_mode = 0
 zoom = Vector2(4.5, 4.5)
 
-[node name="Confetti" type="CPUParticles2D" parent="Control" index="4"]
+[node name="Confetti" type="CPUParticles2D" parent="Control" index="5"]
 position = Vector2(128, 72)
 emitting = false
 amount = 32
@@ -68,7 +74,7 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_mh3h2")
 
 [node name="EndTimer" parent="." index="1"]
-wait_time = 2.5
+wait_time = 3.0
 
 [node name="InputHint" parent="." index="3"]
 position = Vector2(128, 72)

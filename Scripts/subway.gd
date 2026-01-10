@@ -11,6 +11,9 @@ var subway_pos : Vector2
 var swiping : bool
 var speed := .05
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 func _process(delta: float) -> void:
 	hand.position = get_global_mouse_position()
 	
@@ -24,9 +27,9 @@ func _process(delta: float) -> void:
 	if swiping:
 		var distance = start_pos.x - get_global_mouse_position().x
 		subway.position.x = subway_pos.x - distance
-		subway.position.x = clamp(subway.position.x, -260, 384)
+		subway.position.x = clamp(subway.position.x, -300, 384)
 	
-	if subway.position.x <= -260:
+	if subway.position.x <= -300:
 		kronii.frame = 1
 		swiping = false
 		confetti.emitting = true

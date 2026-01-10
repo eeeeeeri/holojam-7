@@ -66,4 +66,5 @@ func _process(delta: float) -> void:
 			Globals.today += 1
 
 		transitioning = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
