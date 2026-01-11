@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bws7safjar52n"]
+[gd_scene load_steps=12 format=3 uid="uid://bws7safjar52n"]
 
 [ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_mhhjm"]
 [ext_resource type="Texture2D" uid="uid://c0unxk4fygp3e" path="res://Assets/Sprites/UI/keyboard.png" id="2_dalvu"]
 [ext_resource type="Texture2D" uid="uid://nv0x041301yv" path="res://Assets/Sprites/UI/mouse.png" id="3_el53e"]
 [ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Menu/pause.tscn" id="4_el53e"]
+[ext_resource type="AudioStream" uid="uid://c74c28o52o0tu" path="res://Assets/Sfx/win.wav" id="5_ixgfj"]
+[ext_resource type="AudioStream" uid="uid://dp750r3fgghe3" path="res://Assets/Sfx/lose.wav" id="6_tqkln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dejql"]
 atlas = ExtResource("3_el53e")
@@ -41,12 +43,14 @@ bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33s2o"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer", "hint_timer", "progress_bar", "input_hint")]
+[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer", "hint_timer", "progress_bar", "input_hint", "win_sound", "lose_sound")]
 script = ExtResource("1_mhhjm")
 end_timer = NodePath("EndTimer")
 hint_timer = NodePath("HintTimer")
 progress_bar = NodePath("CanvasLayer/ProgressBar")
 input_hint = NodePath("InputHint")
+win_sound = NodePath("WinSound")
+lose_sound = NodePath("LoseSound")
 ending_time = 2.0
 
 [node name="EndTimer" type="Timer" parent="."]
@@ -75,5 +79,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
 show_percentage = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("4_el53e")]
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ixgfj")
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tqkln")
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

@@ -2,13 +2,19 @@
 
 [resource]
 data = [{
-"message": "Kroniichiwa!!! I'm Ouro Kronii!!! From Hololive English: Promise!!!
-How is chat doing???",
+"animation": "talk",
+"message": "gbnhsdthrdjrdyjkdtydrtjy",
 "speaker": "Kronii"
 }, {
-"message": "Wow it's Ouro Kronii from Hololive English: Promise!!!",
-"speaker": "Chat"
+"animation": "angry",
+"message": "gboenhouednhhytrthfth",
+"speaker": "Kronii"
 }, {
-"message": "Yes!!! It is I, [wave]Ouro Kronii from Hololive English: Promise!!![/wave]",
+"animation": "silence",
+"message": "gouednhhthfh",
+"speaker": "Kronii"
+}, {
+"animation": "talk",
+"message": "gboenhoudtjrdtkjtfyjktvykvtygkfk",
 "speaker": "Kronii"
 }]
