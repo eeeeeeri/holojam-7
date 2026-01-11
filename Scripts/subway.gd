@@ -10,6 +10,7 @@ var start_pos : Vector2
 var subway_pos : Vector2
 var swiping : bool
 var speed := .05
+var done := false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -29,9 +30,10 @@ func _process(delta: float) -> void:
 		subway.position.x = subway_pos.x - distance
 		subway.position.x = clamp(subway.position.x, -300, 384)
 	
-	if subway.position.x <= -300:
+	if subway.position.x <= -300 and !done:
 		kronii.frame = 1
 		swiping = false
 		confetti.emitting = true
 		minigame.done = true
 		Globals.last_minigame_won = true
+		done = true

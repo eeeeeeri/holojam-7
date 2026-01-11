@@ -43,7 +43,6 @@ func _process(delta: float) -> void:
 		reticle.rotate(.1)
 
 func _clicked_allegation(is_fake: bool) -> void:
-	minigame.done = true
 	emit_signal("allegation_ended")
 	if is_fake:
 		animation_player.play("shot")
@@ -59,6 +58,9 @@ func spawn_allegation() -> void:
 	if allegations_number > allegations_count:
 		add_child(allegations[allegations_count])
 		allegations_count += 1
+
+func done():
+	minigame.done = true
 
 func _on_spawn_timeout() -> void:
 	if !minigame.done:

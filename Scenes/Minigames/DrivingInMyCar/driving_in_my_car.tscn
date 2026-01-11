@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://biic8wmvim6y2"]
+[gd_scene load_steps=14 format=3 uid="uid://biic8wmvim6y2"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_575jf"]
 [ext_resource type="Script" uid="uid://mjo8fle5djol" path="res://Scripts/driving.gd" id="2_ujrh7"]
 [ext_resource type="Texture2D" uid="uid://vd7swoi52m16" path="res://Assets/Sprites/DrivingInMyCar/sky.png" id="3_r2vwl"]
 [ext_resource type="Texture2D" uid="uid://cvwmag7ukg3h1" path="res://Assets/Sprites/DrivingInMyCar/ground.png" id="4_yuwrv"]
+[ext_resource type="AudioStream" uid="uid://bfo541d0y7nu8" path="res://Assets/Sfx/explosion.wav" id="5_yuwrv"]
 [ext_resource type="Shader" uid="uid://b5nxr58oiu48j" path="res://Assets/Shaders/BlackAndWhite.gdshader" id="7_vxjed"]
 [ext_resource type="Texture2D" uid="uid://hjpmk60xosxf" path="res://Assets/Sprites/Kronii/default.png" id="8_tmufg"]
 
@@ -150,17 +151,25 @@ autostart = true
 [node name="ObstacleSpawner" type="Timer" parent="Control" index="8"]
 autostart = true
 
-[node name="Obstacles" type="Node2D" parent="Control" index="9"]
+[node name="CrashTimer" type="Timer" parent="Control" index="9"]
+wait_time = 0.2
+one_shot = true
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="Control" index="10"]
+stream = ExtResource("5_yuwrv")
+bus = &"SFX"
+
+[node name="Obstacles" type="Node2D" parent="Control" index="11"]
 y_sort_enabled = true
 
-[node name="Car" type="Area2D" parent="Control" index="10"]
+[node name="Car" type="Area2D" parent="Control" index="12"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Car" index="0"]
 position = Vector2(128, 144)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_575jf")
 
-[node name="KroniiDies" type="ColorRect" parent="Control" index="11"]
+[node name="KroniiDies" type="ColorRect" parent="Control" index="13"]
 visible = false
 z_index = 20
 z_as_relative = false
@@ -185,7 +194,7 @@ text = "Ouro Kronii
 * ∞
 † 1.000.000 AD"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="12"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="14"]
 libraries = {
 &"": SubResource("AnimationLibrary_vxjed")
 }
@@ -198,4 +207,5 @@ position = Vector2(128, 72)
 
 [connection signal="timeout" from="Control/TreeSpawner" to="Control" method="_on_tree_spawner_timeout"]
 [connection signal="timeout" from="Control/ObstacleSpawner" to="Control" method="_on_obstacle_spawner_timeout"]
+[connection signal="timeout" from="Control/CrashTimer" to="Control" method="_on_crash_timer_timeout"]
 [connection signal="body_entered" from="Control/Car" to="Control" method="_on_car_body_entered"]

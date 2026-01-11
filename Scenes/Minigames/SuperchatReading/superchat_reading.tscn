@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy1bmab2km0gy"]
+[gd_scene load_steps=15 format=3 uid="uid://cy1bmab2km0gy"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_3qr6b"]
 [ext_resource type="Script" uid="uid://bbifh4gfejvog" path="res://Scripts/sc_reading.gd" id="2_31min"]
 [ext_resource type="Texture2D" uid="uid://dvylfs0xwmvuv" path="res://Assets/Sprites/Schedule/menu_bg.png" id="3_7jdb1"]
 [ext_resource type="Texture2D" uid="uid://b53lrkynpkp3m" path="res://Assets/Sprites/Kronii/kronii-victory-sheet.png" id="4_ig2qi"]
+[ext_resource type="AudioStream" uid="uid://bxyuwchimkikr" path="res://Assets/Sfx/OK.wav" id="5_ig2qi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_31min"]
 font_size = 72
@@ -152,9 +153,9 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="SuperchatReading" instance=ExtResource("1_3qr6b")]
-input_type = 1
 melody = 4
 drums = 1
+input_type = 1
 
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_31min")
@@ -212,6 +213,9 @@ color_ramp = SubResource("Gradient_7jdb1")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_ig2qi")
+
+[node name="ScTY" type="AudioStreamPlayer" parent="Control" index="5"]
+stream = ExtResource("5_ig2qi")
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 position = Vector2(0, -54)

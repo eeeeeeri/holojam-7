@@ -25,9 +25,9 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Subway" instance=ExtResource("1_w1evv")]
-input_type = 1
 melody = 1
 drums = 1
+input_type = 1
 
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_g23eu")

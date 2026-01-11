@@ -5,7 +5,7 @@
 
 [node name="WeekDay" type="Sprite2D"]
 texture = ExtResource("1_dnchd")
-hframes = 3
+hframes = 4
 script = ExtResource("1_w7vp8")
 
 [node name="Label" type="Label" parent="."]

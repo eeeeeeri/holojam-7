@@ -9,6 +9,8 @@ extends Node2D
 @onready var obstacle_spawner: Timer = $ObstacleSpawner
 @onready var minigame: Minigame = $".."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var crash_timer: Timer = $CrashTimer
+@onready var explosion_sound: AudioStreamPlayer = $ExplosionSound
 
 const TREE = preload("uid://ib0q14jmhhhq")
 const ROCK = preload("uid://ce2brbiebltmd")
@@ -67,6 +69,10 @@ func _on_obstacle_spawner_timeout() -> void:
 
 
 func _on_car_body_entered(body: Node2D) -> void:
+	explosion_sound.play()
+	crash_timer.start()
+
+func _on_crash_timer_timeout() -> void:
 	emit_signal("crash")
 	animation_player.play("KroniiDies")
 	tree_spawner.stop()
@@ -74,3 +80,4 @@ func _on_car_body_entered(body: Node2D) -> void:
 	Globals.last_minigame_won = false
 	minigame.done = true
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"),true)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"),true)

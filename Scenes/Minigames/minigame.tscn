@@ -82,8 +82,10 @@ show_percentage = false
 
 [node name="WinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ixgfj")
+bus = &"SFX"
 
 [node name="LoseSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_tqkln")
+bus = &"SFX"
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

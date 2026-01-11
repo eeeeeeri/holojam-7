@@ -7,9 +7,10 @@ var start_pos : Vector2
 var outfit_pos : Vector2
 var swiping : bool
 var speed := .05
+var done := false
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("left_mouse") and !minigame.done:
+	if Input.is_action_just_pressed("left_mouse") and !minigame.done and !done:
 		swiping = true
 		start_pos = get_global_mouse_position()
 		outfit_pos = outfit.position
@@ -21,9 +22,11 @@ func _process(delta: float) -> void:
 		outfit.position.y = outfit_pos.y - distance
 		outfit.position.y = clamp(outfit.position.y,-144,288)
 	
-	if outfit.position.y >= 288:
+	if outfit.position.y >= 288 and !done:
 		outfit.frame = 1
 		swiping = false
 		confetti.emitting = true
 		minigame.done = true
 		Globals.last_minigame_won = true
+		done = true
+		

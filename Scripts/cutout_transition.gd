@@ -20,4 +20,5 @@ func transition_scene(scene: String):
 	animation_player.play("Close")
 	await on_transition_finished
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"),false)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"),false)
 	get_tree().change_scene_to_file(scene)

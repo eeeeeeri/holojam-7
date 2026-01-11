@@ -20,6 +20,7 @@ var done: bool
 var ending: bool
 var progress: float
 var transitioning = false
+var sound_played := false
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -52,10 +53,13 @@ func _process(delta: float) -> void:
 			progress = progress_bar.value / progress_bar.max_value
 			progress_bar.max_value = progress + ending_time
 			end_timer.start()
-			if Globals.last_minigame_won:
-				win_sound.play()
-			else:
-				lose_sound.play()
+		
+		if Globals.last_minigame_won:
+			win_sound.play()
+		else:
+			lose_sound.play()
+		
+		sound_played = true
 		done = false
 	
 	if ending:
@@ -71,7 +75,13 @@ func _process(delta: float) -> void:
 			Globals.week_minigames.clear()
 		else:
 			Globals.today += 1
-
-		transitioning = true
+		
+		if !sound_played:
+			if Globals.last_minigame_won:
+				win_sound.play()
+			else:
+				lose_sound.play()
+		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
+		transitioning = true

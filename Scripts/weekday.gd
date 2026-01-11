@@ -8,6 +8,7 @@ var offline : bool
 @onready var label: Label = $Label
 @onready var title: Label = $Title
 @onready var description: Label = $Description
+var finished = false
 
 func _ready() -> void:
 	
@@ -44,3 +45,8 @@ func _process(delta: float) -> void:
 	else:
 		title.text = "???"
 		description.text = "???"
+	
+	if finished:
+		title.text = "GRADUATION STREAM"
+		description.text = "it's finally here."
+		frame = 3

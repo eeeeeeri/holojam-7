@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyhqprcp86adf"]
+[gd_scene load_steps=13 format=3 uid="uid://cyhqprcp86adf"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_5mw6m"]
 [ext_resource type="Script" uid="uid://df15p6a5f0vts" path="res://Scripts/rugpull.gd" id="2_trdgb"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://des33s1er0cdy" path="res://Assets/Sprites/Rugpull/sell.png" id="4_7yxty"]
 [ext_resource type="Texture2D" uid="uid://xpyocpdo5lkp" path="res://Assets/Sprites/Rugpull/dollar.png" id="5_7yxty"]
 [ext_resource type="Texture2D" uid="uid://dsln3f0exy3m1" path="res://Assets/Sprites/Rugpull/no_dolar.png" id="6_vwpns"]
+[ext_resource type="AudioStream" uid="uid://bxyuwchimkikr" path="res://Assets/Sfx/OK.wav" id="7_acp5l"]
+[ext_resource type="AudioStream" uid="uid://iy08jo7433y1" path="res://Assets/Sfx/OK 2.wav" id="8_ybfut"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwpns"]
 atlas = ExtResource("4_7yxty")
@@ -24,9 +26,9 @@ offsets = PackedFloat32Array(0, 0.45890412)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Rugpull" instance=ExtResource("1_5mw6m")]
-input_type = 1
 melody = 3
 drums = 2
+input_type = 1
 
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_trdgb")
@@ -76,12 +78,18 @@ emission_shape = 3
 emission_rect_extents = Vector2(128, 1)
 color_ramp = SubResource("Gradient_acp5l")
 
+[node name="Up" type="AudioStreamPlayer" parent="Control" index="7"]
+stream = ExtResource("7_acp5l")
+volume_db = -5.0
+pitch_scale = 0.8
+
+[node name="Down" type="AudioStreamPlayer" parent="Control" index="8"]
+stream = ExtResource("8_ybfut")
+volume_db = -5.0
+pitch_scale = 0.8
+
 [node name="EndTimer" parent="." index="1"]
 wait_time = 8.0
-
-[node name="ProgressBar" parent="." index="2"]
-offset_top = 140.0
-offset_bottom = 144.0
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 anchor_mode = 0

@@ -8,6 +8,7 @@ extends Control
 
 @export var json_file : JSON
 @export var scene := 0
+@export var no_music := false
 
 var json
 var displayed := false

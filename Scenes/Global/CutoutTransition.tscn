@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://785imwgj188q"]
+[gd_scene load_steps=7 format=3 uid="uid://b048v08oxysnw"]
 
 [ext_resource type="Shader" uid="uid://bgowe5l8fob4e" path="res://Assets/Shaders/CutoutTranistion.gdshader" id="2_egsgs"]
 [ext_resource type="Script" uid="uid://dma0ebc5aobfy" path="res://Scripts/cutout_transition.gd" id="2_vsiwg"]

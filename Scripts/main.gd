@@ -6,7 +6,9 @@ extends Node2D
 @onready var tasks_left: Label = $TasksLeft
 @onready var days_left: Label = $DaysLeft
 @onready var schedule: Node2D = $Schedule
+@onready var ok: AudioStreamPlayer = $Ok
 
+var finished := false
 
 func _ready() -> void:
 	
@@ -16,6 +18,7 @@ func _ready() -> void:
 		live_kroners_reaction.animation = "default"
 	else:
 		if Globals.last_minigame_won:
+			Globals.minigames.erase(Globals.current_minigame)
 			live_kroners_reaction.animation = "happy"
 		else:
 			live_kroners_reaction.animation = "angry"
@@ -36,6 +39,10 @@ func _ready() -> void:
 	for i in range(Globals.week_minigames.size()):
 		schedule.get_child(i).minigame = Globals.week_minigames[i]
 		schedule.get_child(i).offline = Globals.week_offlines[i]
+	
+	print(Globals.minigames)
+	if Globals.minigames.is_empty():
+		finished = true
 
 
 func _on_reaction_timeout() -> void:
@@ -44,16 +51,22 @@ func _on_reaction_timeout() -> void:
 	live_kroners_reaction.animation = "default"
 	
 	# Pick random minigame
-	if Globals.first_minigame: Globals.first_minigame = false
-	Globals.current_minigame = Globals.minigames.pick_random()
+	if !finished:
+		if Globals.first_minigame: Globals.first_minigame = false
+		Globals.current_minigame = Globals.minigames.pick_random()
+		
+		# Add minigame to schedule
+		Globals.week_minigames.append(Globals.current_minigame)
+		schedule.get_child(Globals.today).minigame = Globals.current_minigame
+	else:
+		schedule.get_child(Globals.today).finished = true
 	
-	# Add minigame to schedule
-	Globals.week_minigames.append(Globals.current_minigame)
-	schedule.get_child(Globals.today).minigame = Globals.current_minigame
+	ok.play()
 	
 	next_minigame.start()
 
 
 func _on_next_minigame_timeout() -> void:
 	Globals.last_minigame_won = false
-	CutoutTransition.transition_scene(Globals.current_minigame.scene_file)
+	if !finished:
+		CutoutTransition.transition_scene(Globals.current_minigame.scene_file)
