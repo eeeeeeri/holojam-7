@@ -6,10 +6,12 @@ enum InputType {KEYBOARD, MOUSE}
 @export var hint_timer: Timer
 @export var progress_bar: ProgressBar
 @export var input_hint: AnimatedSprite2D
-@export var input_type: InputType
-@export var ending_time: float
+@export var win_sound: AudioStreamPlayer
+@export var lose_sound: AudioStreamPlayer
 @export var melody: Music.Melody
 @export var drums: Music.Drums
+@export var input_type: InputType
+@export var ending_time: float
 
 var scene_file: String
 var title: String
@@ -50,6 +52,10 @@ func _process(delta: float) -> void:
 			progress = progress_bar.value / progress_bar.max_value
 			progress_bar.max_value = progress + ending_time
 			end_timer.start()
+			if Globals.last_minigame_won:
+				win_sound.play()
+			else:
+				lose_sound.play()
 		done = false
 	
 	if ending:
