@@ -8,6 +8,7 @@ func _ready() -> void:
 		config.set_value("audio", "Master", 1.0)
 		config.set_value("audio", "Music", 1.0)
 		config.set_value("audio", "SFX", 1.0)
+		config.set_value("audio", "TextSpeed", 0.06)
 		
 		config.save(SETTINGS_FILE_PATH)
 	else:

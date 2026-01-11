@@ -1,0 +1,14 @@
+[gd_resource type="JSON" format=3 uid="uid://c7dth2ynuk8eu"]
+
+[resource]
+data = [{
+"message": "Kroniichiwa!!! I'm Ouro Kronii!!! From Hololive English: Promise!!!
+How is chat doing???",
+"speaker": "Kronii"
+}, {
+"message": "Wow it's Ouro Kronii from Hololive English: Promise!!!",
+"speaker": "Chat"
+}, {
+"message": "Yes!!! It is I, [wave]Ouro Kronii from Hololive English: Promise!!![/wave]",
+"speaker": "Kronii"
+}]

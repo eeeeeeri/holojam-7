@@ -23,6 +23,10 @@ CutoutTransition="*res://Scenes/Global/CutoutTransition.tscn"
 ConfigFileHandler="*res://Scripts/config_file_handler.gd"
 Music="*res://Scenes/Global/music.tscn"
 
+[display]
+
+window/size/resizable=false
+
 [dotnet]
 
 project/assembly_name="holojam7"

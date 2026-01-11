@@ -1,26 +1,42 @@
-[gd_scene load_steps=10 format=3 uid="uid://36w8iclhocla"]
+[gd_scene load_steps=17 format=3 uid="uid://36w8iclhocla"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_k1rrf"]
 [ext_resource type="Script" uid="uid://dltqgn5agybiq" path="res://Scripts/adderessing_allegations.gd" id="2_2w7w0"]
-[ext_resource type="Texture2D" uid="uid://hvv316qtulho" path="res://Assets/Sprites/SpellingBee/bg.png" id="3_adkg1"]
+[ext_resource type="Texture2D" uid="uid://dou15xcpn6xwp" path="res://Assets/Sprites/Allegations/bg_allegations.png" id="3_g50md"]
 [ext_resource type="Texture2D" uid="uid://dxw7qjqtkfhec" path="res://Assets/Sprites/Allegations/reticle.png" id="4_adkg1"]
+[ext_resource type="Texture2D" uid="uid://d2fr27f5ky1v8" path="res://Assets/Sprites/Allegations/allegations_shadow.png" id="4_xsju8"]
 [ext_resource type="Texture2D" uid="uid://cluaawi3wiht3" path="res://Assets/Sprites/Allegations/NO_THATS_WRONG.png" id="5_r8x5l"]
+[ext_resource type="Texture2D" uid="uid://cq7kiv1rykm0b" path="res://Assets/Sprites/Allegations/kronii.png" id="5_uqhk3"]
+[ext_resource type="Texture2D" uid="uid://bw48864o0ga6u" path="res://Assets/Sprites/Allegations/allegations_table.png" id="6_csr51"]
 
-[sub_resource type="Animation" id="Animation_adkg1"]
-resource_name = "parry"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.5882353)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiyau"]
+atlas = ExtResource("5_uqhk3")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15qav"]
+atlas = ExtResource("5_uqhk3")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkw83"]
+atlas = ExtResource("5_uqhk3")
+region = Rect2(512, 0, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_walo4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiyau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15qav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkw83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="Animation" id="Animation_r8x5l"]
 length = 0.001
@@ -59,6 +75,22 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(128, 72)]
+}
+
+[sub_resource type="Animation" id="Animation_adkg1"]
+resource_name = "parry"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.5882353)]
 }
 
 [sub_resource type="Animation" id="Animation_f7m0l"]
@@ -104,24 +136,38 @@ drums = 1
 [node name="Control" type="Node2D" parent="." index="0"]
 script = ExtResource("2_2w7w0")
 
-[node name="Bg" type="Sprite2D" parent="Control" index="0"]
+[node name="BgAllegations" type="Sprite2D" parent="Control" index="0"]
 position = Vector2(128, 72)
-texture = ExtResource("3_adkg1")
+texture = ExtResource("3_g50md")
 
-[node name="Spawn" type="Timer" parent="Control" index="1"]
+[node name="AllegationsShadow" type="Sprite2D" parent="Control" index="1"]
+position = Vector2(128, 72)
+texture = ExtResource("4_xsju8")
+
+[node name="AllegationsKronii" type="AnimatedSprite2D" parent="Control" index="2"]
+position = Vector2(128, 72)
+sprite_frames = SubResource("SpriteFrames_walo4")
+autoplay = "default"
+frame_progress = 0.815451
+
+[node name="AllegationsTable" type="Sprite2D" parent="Control" index="3"]
+position = Vector2(128, 72)
+texture = ExtResource("6_csr51")
+
+[node name="Spawn" type="Timer" parent="Control" index="4"]
 wait_time = 2.0
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="Control" index="2"]
+[node name="Camera2D" type="Camera2D" parent="Control" index="5"]
 anchor_mode = 0
 zoom = Vector2(4.5, 4.5)
 
-[node name="Reticle" type="Sprite2D" parent="Control" index="3"]
+[node name="Reticle" type="Sprite2D" parent="Control" index="6"]
 z_index = 1
 texture = ExtResource("4_adkg1")
 hframes = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" index="4"]
+[node name="ColorRect" type="ColorRect" parent="Control" index="7"]
 z_index = 5
 z_as_relative = false
 offset_right = 256.0
@@ -129,13 +175,13 @@ offset_bottom = 140.0
 mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
-[node name="NoThatsWrong" type="Sprite2D" parent="Control" index="5"]
+[node name="NoThatsWrong" type="Sprite2D" parent="Control" index="8"]
 visible = false
 z_index = 10
 position = Vector2(128, 72)
 texture = ExtResource("5_r8x5l")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" index="9"]
 libraries = {
 &"": SubResource("AnimationLibrary_f7m0l")
 }
@@ -143,11 +189,7 @@ libraries = {
 [node name="EndTimer" parent="." index="1"]
 wait_time = 12.0
 
-[node name="ProgressBar" parent="." index="3"]
-offset_top = 140.0
-offset_bottom = 144.0
-
-[node name="InputHint" parent="." index="4"]
+[node name="InputHint" parent="." index="3"]
 position = Vector2(128, 72)
 
 [connection signal="timeout" from="Control/Spawn" to="Control" method="_on_spawn_timeout"]
