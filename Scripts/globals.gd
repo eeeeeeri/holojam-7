@@ -23,3 +23,4 @@ var tasks_left : int = 20
 var days_left : int = 30
 var today := WeekDay.MON
 var cam_x : float
+var txt_spd := 0.06
