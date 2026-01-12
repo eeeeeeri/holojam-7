@@ -104,7 +104,7 @@ func _process(delta: float) -> void:
 				if Globals.gauntlet_current < 5:
 					CutoutTransition.transition_scene(Globals.gauntlet_minigames[Globals.gauntlet_current].scene_file)
 				else:
-					print("gg")
+					CutoutTransition.transition_scene("res://Scenes/Cutscenes/Graduation/graduation.tscn")
 			else:
 				print("lost")
 		else:

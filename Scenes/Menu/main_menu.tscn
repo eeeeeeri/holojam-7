@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://qilinpa3inik"]
 
 [ext_resource type="Script" uid="uid://dlbyu62clxcu6" path="res://Scripts/main_menu.gd" id="1_tself"]
-[ext_resource type="Texture2D" uid="uid://dt4m6sja71wo1" path="res://Assets/Sprites/temp_default_reaction.png" id="2_7jtkx"]
+[ext_resource type="Texture2D" uid="uid://bdjr465d4pns1" path="res://Assets/Sprites/Graduation/Kronii_grad_neutral.png" id="2_7jtkx"]
 [ext_resource type="PackedScene" uid="uid://chrhpwpv0slvw" path="res://Scenes/Menu/volume_slider.tscn" id="3_7jtkx"]
 
 [node name="MainMenu" type="Control"]
@@ -12,6 +12,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tself")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="KroniiGradNeutral" type="Sprite2D" parent="."]
+position = Vector2(-203.00002, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_7jtkx")
+centered = false
 
 [node name="MainScreen" type="Control" parent="."]
 layout_mode = 1
@@ -25,20 +36,6 @@ offset_top = -20.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
-
-[node name="TempDefaultReaction" type="Sprite2D" parent="MainScreen"]
-position = Vector2(-718, -71)
-scale = Vector2(9.13, 3.86)
-texture = ExtResource("2_7jtkx")
-hframes = 2
-
-[node name="Label" type="Label" parent="MainScreen"]
-layout_mode = 0
-offset_left = -876.0
-offset_top = 159.0
-offset_right = -678.0
-offset_bottom = 182.0
-text = "KRONII GRADUATES!!!!!!!!!!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainScreen"]
 layout_direction = 3

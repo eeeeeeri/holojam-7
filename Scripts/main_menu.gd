@@ -3,9 +3,12 @@ extends Control
 @onready var main_screen: Control = $MainScreen
 @onready var settings_screen: Control = $SettingsScreen
 @onready var credits_screen: Control = $CreditsScreen
+@onready var kronii: Sprite2D = $KroniiGradNeutral
 
 func _ready() -> void:
 	Music.play_tracks(Music.Melody.QUIET, Music.Drums.SLOW)
+	if Globals.game_ended:
+		kronii.visible=false
 
 
 func _on_start_button_button_down() -> void:

@@ -66,3 +66,7 @@ func stop_talking() -> void:
 	if !has_stop_talking:
 		emit_signal("shut_up")
 		has_stop_talking = true
+
+func end_game():
+	Music.change(Music.Song.SSS)
+	Globals.game_ended = true

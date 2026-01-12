@@ -2,7 +2,7 @@
 	{
 		"speaker":"Kronii",
 		"message":"Well...               \nWe are finally here!",
-		"animation":""
+		"animation":"start"
 	},
 	{
 		"speaker":"Kronii",
@@ -11,7 +11,7 @@
 	},
 	{
 		"speaker":"Kronii",
-		"message":"Will you kronies also miss me?? Of course you will!! Who wouldn't miss such a magnificant and beautiful person??",
+		"message":"Will you kronies also miss me??\nOf course you will!!\nWho wouldn't miss such a magnificant and beautiful person??",
 		"animation":""
 	},
 	{
@@ -26,7 +26,7 @@
 	},
 	{
 		"speaker":"Kronii",
-		"message":"I know we will meet again someday,          \nI mean i'm time itself",
+		"message":"I know we will meet again someday,      \nI mean I'm time itself",
 		"animation":""
 	},
 	{
