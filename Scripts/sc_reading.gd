@@ -11,7 +11,7 @@ var read := 0
 var won := false
 
 func _ready() -> void:
-	sc_num = randi_range(3,8)
+	sc_num = randi_range(6,12)
 	if Globals.gauntlet:
 		sc_num = 16
 	

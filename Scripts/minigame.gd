@@ -35,6 +35,7 @@ func _ready() -> void:
 	if !Globals.gauntlet:
 		Music.play_tracks(melody,drums)
 	else:
+		input_hint.visible = false
 		hearts.visible = true
 	
 	for i in range(2):
@@ -43,12 +44,11 @@ func _ready() -> void:
 	
 	progress_bar.max_value = end_timer.wait_time
 	
-	if !Globals.gauntlet:
-		match input_type:
-			InputType.KEYBOARD:
-				input_hint.play("keyboard")
-			InputType.MOUSE:
-				input_hint.play("mouse")
+	match input_type:
+		InputType.KEYBOARD:
+			input_hint.play("keyboard")
+		InputType.MOUSE:
+			input_hint.play("mouse")
 	
 	Globals.last_minigame_won = false
 
@@ -62,7 +62,8 @@ func _process(delta: float) -> void:
 			end_timer.stop()
 			end_timer.wait_time = ending_time
 			ending = true
-			progress = progress_bar.value / progress_bar.max_value
+			progress = progress_bar.max_value - progress_bar.value
+			progress_bar.value = progress
 			progress_bar.max_value = progress + ending_time
 			end_timer.start()
 		

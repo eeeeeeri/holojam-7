@@ -6,6 +6,7 @@ extends Node2D
 @onready var minigame: Minigame = $".."
 @onready var confetti: CPUParticles2D = $Confetti
 @onready var end_timer: Timer = $"../EndTimer"
+@onready var progress_bar: ProgressBar = $"../CanvasLayer/ProgressBar"
 
 var start_pos : Vector2
 var subway_pos : Vector2
@@ -17,7 +18,10 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	if Globals.gauntlet:
+		end_timer.stop()
 		end_timer.wait_time = 1.5
+		end_timer.start()
+		progress_bar.max_value = end_timer.wait_time
 
 func _process(delta: float) -> void:
 	hand.position = get_global_mouse_position()

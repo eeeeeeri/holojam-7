@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	message.visible_characters = visible_char
 	timer.wait_time = lerp(.1,.01,Globals.txt_spd)
 	
-	if Input.is_action_just_pressed("left_mouse"):
+	if Input.is_action_just_pressed("advance_text"):
 		if !displayed:
 			visible_char = message.text.length()
 			displayed = true
@@ -46,15 +46,17 @@ func _process(delta: float) -> void:
 		stop_talking()
 
 func read() -> void:
-	timer.start()
+	message.visible = false
 	displayed = false
 	visible_char = 0
 	speaker.text = json[scene].speaker
 	message.text = json[scene].message
 	if json[scene].animation: animation_player.play(json[scene].animation)
 	has_stop_talking = false
+	timer.start()
 
 func _on_timer_timeout() -> void:
+	message.visible = true
 	visible_char += 1
 	if message.text.length() > visible_char:
 		timer.start()
