@@ -9,11 +9,10 @@ extends Control
 @export var json_file : JSON
 @export var next_scene : PackedScene
 @export var scene := 0
-@export var no_music := false
 
 var json
 var displayed := false
-var visible_char := 1
+var visible_char := 0
 var has_stop_talking := false
 
 signal shut_up
@@ -47,13 +46,13 @@ func _process(delta: float) -> void:
 		stop_talking()
 
 func read() -> void:
+	timer.start()
 	displayed = false
-	visible_char = 1
+	visible_char = 0
 	speaker.text = json[scene].speaker
 	message.text = json[scene].message
 	if json[scene].animation: animation_player.play(json[scene].animation)
 	has_stop_talking = false
-	timer.start()
 
 func _on_timer_timeout() -> void:
 	visible_char += 1
