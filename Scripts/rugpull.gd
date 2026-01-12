@@ -10,21 +10,20 @@ extends Node2D
 var step := 0
 var value := 96
 var last_value := 96
-var has_reached_min := false
 
 func _on_clock_timeout() -> void:
-	if has_reached_min:
-		value = clamp(randi_range(last_value - 32, last_value + 32), 0, 112)
+	if last_value < 48:
+		value = clamp(randi_range(last_value - 16, last_value + 64), 0, 112)
 	else:
-		value = clamp(randi_range(last_value - 64, last_value + 4), 0, 112)
+		value = clamp(randi_range(last_value - 64, last_value + 16), 0, 112)
+	
 	if value < last_value:
 		up.play()
 	else:
 		down.play()
+	
 	line_2d.add_point(Vector2(step * 16, value))
 	last_value = value
-	if value <= 48:
-		has_reached_min = true
 	step += 1
 
 
