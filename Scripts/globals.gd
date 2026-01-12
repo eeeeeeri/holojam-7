@@ -38,3 +38,41 @@ var gauntlet := false
 var gauntlet_minigames = []
 var gauntlet_current = 0
 var gauntlet_lifes = 2
+
+func reset() -> void:
+	all_minigames = [
+	Minigame.minigame("res://Scenes/Minigames/SuperchatReading/superchat_reading.tscn","Superchat Reading","Read all the Superchats!"),
+	Minigame.minigame("res://Scenes/Minigames/Rugpull/rugpull.tscn","Scam with $KRONII","Sell $KRONII at a High!"),
+	Minigame.minigame("res://Scenes/Minigames/SpellingBee/spelling_bee.tscn","Spelling Bee","Is actually typing"),
+	Minigame.minigame("res://Scenes/Minigames/AddressingAllegations/addressing_allegations.tscn", "Adressing the Allegations","Spot the false allegations"),
+	Minigame.minigame("res://Scenes/Minigames/OutfitReveal/outfit_reveal.tscn", "New Outfit Reveal","Showcase your new outfit!"),
+	Minigame.minigame("res://Scenes/Minigames/Subway/subway.tscn", "Eat Subway","Devour it whole"),
+	Minigame.minigame("res://Scenes/Minigames/DrivingInMyCar/driving_in_my_car.tscn", "Don't crash","Driving in my car right after a stream")
+]
+	minigames = [
+	Minigame.minigame("res://Scenes/Minigames/SuperchatReading/superchat_reading.tscn","Superchat Reading","Read all the Superchats!"),
+	Minigame.minigame("res://Scenes/Minigames/Rugpull/rugpull.tscn","Scam with $KRONII","Sell $KRONII at a High!"),
+	Minigame.minigame("res://Scenes/Minigames/SpellingBee/spelling_bee.tscn","Spelling Bee","Is actually typing"),
+	Minigame.minigame("res://Scenes/Minigames/AddressingAllegations/addressing_allegations.tscn", "Adressing the Allegations","Spot the false allegations"),
+	Minigame.minigame("res://Scenes/Minigames/OutfitReveal/outfit_reveal.tscn", "New Outfit Reveal","Showcase your new outfit!"),
+	Minigame.minigame("res://Scenes/Minigames/Subway/subway.tscn", "Eat Subway","Devour it whole"),
+	Minigame.minigame("res://Scenes/Minigames/DrivingInMyCar/driving_in_my_car.tscn", "Don't crash","Driving in my car right after a stream")
+]
+
+	week_minigames = []
+	week_offlines = []
+	first_minigame = true
+	minigame_won = false
+	last_minigame_won = false
+	current_minigame = null
+	tasks_left = 7
+	days_left = 14
+	today = WeekDay.MON
+	cam_x = 0
+	txt_spd = 0.06
+	game_ended = false
+
+	gauntlet = false
+	gauntlet_minigames = []
+	gauntlet_current = 0
+	gauntlet_lifes = 2
