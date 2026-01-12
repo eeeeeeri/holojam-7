@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di4ya16lpuiyh"]
+[gd_scene load_steps=6 format=3 uid="uid://di4ya16lpuiyh"]
 
 [ext_resource type="PackedScene" uid="uid://54y675w8qvbr" path="res://Scenes/Cutscenes/cutscene.tscn" id="1_fbw6n"]
 [ext_resource type="JSON" path="res://Assets/Dialogs/Intro/intro_opening.json" id="2_dw5y8"]
@@ -78,23 +78,6 @@ tracks/5/keys = {
 "values": [Vector2(1152, 159.99963)]
 }
 
-[sub_resource type="Animation" id="Animation_mc7sw"]
-resource_name = "angry"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NPCs/NPC")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["angry"],
-"method": &"_yap"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_h4u3d"]
 resource_name = "no_animation"
 tracks/0/type = "value"
@@ -170,61 +153,10 @@ tracks/5/keys = {
 "values": [Vector2(1152, 1080)]
 }
 
-[sub_resource type="Animation" id="Animation_r7kcd"]
-resource_name = "silence"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NPCs/NPC")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["normal"],
-"method": &"_yap"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("NPCs/NPC")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_shut_up"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_t0q61"]
-resource_name = "talk"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NPCs/NPC")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["normal"],
-"method": &"_yap"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8duty"]
 _data = {
 &"RESET": SubResource("Animation_dw5y8"),
-&"angry": SubResource("Animation_mc7sw"),
-&"no_animation": SubResource("Animation_h4u3d"),
-&"silence": SubResource("Animation_r7kcd"),
-&"talk": SubResource("Animation_t0q61")
+&"no_animation": SubResource("Animation_h4u3d")
 }
 
 [node name="Cutscene" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_fbw6n")]
