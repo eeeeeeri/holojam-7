@@ -7,6 +7,7 @@ extends Control
 @onready var npcs: Node2D = $NPCs
 
 @export var json_file : JSON
+@export var next_scene : PackedScene
 @export var scene := 0
 @export var no_music := false
 
@@ -38,6 +39,9 @@ func _process(delta: float) -> void:
 			if json.size() > scene + 1:
 				scene += 1
 				read()
+			else:
+				if next_scene:
+					CutoutTransition.transition_scene(next_scene.resource_path)
 	
 	if displayed:
 		stop_talking()
@@ -47,7 +51,7 @@ func read() -> void:
 	visible_char = 1
 	speaker.text = json[scene].speaker
 	message.text = json[scene].message
-	animation_player.play(json[scene].animation)
+	if json[scene].animation: animation_player.play(json[scene].animation)
 	has_stop_talking = false
 	timer.start()
 

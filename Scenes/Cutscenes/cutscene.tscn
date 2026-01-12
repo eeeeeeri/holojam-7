@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://54y675w8qvbr"]
+[gd_scene load_steps=19 format=3 uid="uid://54y675w8qvbr"]
 
 [ext_resource type="Script" uid="uid://21efemtwjvta" path="res://Scripts/cutscene.gd" id="1_wdfqq"]
-[ext_resource type="JSON" uid="uid://c7dth2ynuk8eu" path="res://Assets/Dialogs/dialog0.tres" id="2_7lemd"]
 [ext_resource type="Texture2D" uid="uid://db5wdgcjqxtdl" path="res://Assets/Sprites/temp_talk_angry.png" id="3_1ch7t"]
 [ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Menu/pause.tscn" id="3_1f2to"]
 [ext_resource type="Texture2D" uid="uid://c8rnc86ruy5qn" path="res://Assets/Sprites/temp_talk.png" id="4_pmh5m"]
@@ -302,7 +301,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdfqq")
-json_file = ExtResource("2_7lemd")
 
 [node name="BlackBackground" type="ColorRect" parent="."]
 visible = false
@@ -318,7 +316,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(389, 308)
 scale = Vector2(2.8671875, 2.8671875)
 sprite_frames = SubResource("SpriteFrames_2xtjq")
-animation = &"angry"
+animation = &"normal"
 script = ExtResource("5_pmh5m")
 metadata/_custom_type_script = "uid://yy8303buqicx"
 

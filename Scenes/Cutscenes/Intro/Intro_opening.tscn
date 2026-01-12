@@ -5,3 +5,4 @@
 
 [node name="Cutscene" instance=ExtResource("1_fbw6n")]
 json_file = ExtResource("2_dw5y8")
+next_scene = ExtResource("1_fbw6n")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnnvd1nn06x28"]
+
+[ext_resource type="PackedScene" uid="uid://54y675w8qvbr" path="res://Scenes/Cutscenes/cutscene.tscn" id="1_mxo7y"]
+[ext_resource type="JSON" path="res://Assets/Dialogs/Graduation/graduation.json" id="2_mcaij"]
+[ext_resource type="Texture2D" uid="uid://bdjr465d4pns1" path="res://Assets/Sprites/Graduation/Kronii_grad_neutral.png" id="3_3afu7"]
+[ext_resource type="Texture2D" uid="uid://bwsjiimdqqmn2" path="res://Assets/Sprites/Graduation/kronii_grad_smile.png" id="4_fm7mf"]
+
+[node name="Cutscene" instance=ExtResource("1_mxo7y")]
+json_file = ExtResource("2_mcaij")
+
+[node name="KroniiGradNeutral" type="Sprite2D" parent="." index="1"]
+position = Vector2(576, 324)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_3afu7")
+
+[node name="KroniiGradSmile" type="Sprite2D" parent="." index="2"]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_fm7mf")
+
+[node name="NPC" parent="NPCs" index="0"]
+position = Vector2(-495, 280)
