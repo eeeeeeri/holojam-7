@@ -3,9 +3,9 @@ extends Control
 @onready var speaker: Label = $NameTag/Speaker
 @onready var message: RichTextLabel = $DialogBox/Message
 @onready var timer: Timer = $DialogBox/Timer
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var npcs: Node2D = $NPCs
 
+@export var animation_player: AnimationPlayer
 @export var json_file : JSON
 @export var next_scene : PackedScene
 @export var scene := 0

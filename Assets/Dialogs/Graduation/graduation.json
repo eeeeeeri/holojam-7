@@ -42,6 +42,11 @@
 	{
 		"speaker":"Kronii",
 		"message":"Kroyasumii everyone!!",
-		"animation":""
+		"animation":"smile"
+	},
+	{
+		"speaker":"",
+		"message":"",
+		"animation":"end"
 	},
 ]
