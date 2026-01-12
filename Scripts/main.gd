@@ -76,5 +76,6 @@ func _on_next_minigame_timeout() -> void:
 	if !finished:
 		CutoutTransition.transition_scene(Globals.current_minigame.scene_file)
 	else:
+		Music.play()
 		Globals.gauntlet_lifes = 2
 		CutoutTransition.transition_scene(Globals.gauntlet_minigames[Globals.gauntlet_current].scene_file)
