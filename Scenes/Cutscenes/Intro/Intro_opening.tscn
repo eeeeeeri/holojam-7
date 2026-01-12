@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://54y675w8qvbr" path="res://Scenes/Cutscenes/cutscene.tscn" id="1_fbw6n"]
 [ext_resource type="JSON" path="res://Assets/Dialogs/Intro/intro_opening.json" id="2_dw5y8"]
 
-[sub_resource type="Animation" id="Animation_mgn0m"]
+[sub_resource type="Animation" id="Animation_dw5y8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -78,7 +78,7 @@ tracks/5/keys = {
 "values": [Vector2(1152, 159.99963)]
 }
 
-[sub_resource type="Animation" id="Animation_pmh5m"]
+[sub_resource type="Animation" id="Animation_mc7sw"]
 resource_name = "angry"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -95,7 +95,7 @@ tracks/0/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_q2igu"]
+[sub_resource type="Animation" id="Animation_h4u3d"]
 resource_name = "no_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -170,7 +170,7 @@ tracks/5/keys = {
 "values": [Vector2(1152, 1080)]
 }
 
-[sub_resource type="Animation" id="Animation_cok4t"]
+[sub_resource type="Animation" id="Animation_r7kcd"]
 resource_name = "silence"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -201,7 +201,7 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_1ch7t"]
+[sub_resource type="Animation" id="Animation_t0q61"]
 resource_name = "talk"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -218,13 +218,13 @@ tracks/0/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gl086"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8duty"]
 _data = {
-&"RESET": SubResource("Animation_mgn0m"),
-&"angry": SubResource("Animation_pmh5m"),
-&"no_animation": SubResource("Animation_q2igu"),
-&"silence": SubResource("Animation_cok4t"),
-&"talk": SubResource("Animation_1ch7t")
+&"RESET": SubResource("Animation_dw5y8"),
+&"angry": SubResource("Animation_mc7sw"),
+&"no_animation": SubResource("Animation_h4u3d"),
+&"silence": SubResource("Animation_r7kcd"),
+&"talk": SubResource("Animation_t0q61")
 }
 
 [node name="Cutscene" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_fbw6n")]
@@ -233,5 +233,5 @@ json_file = ExtResource("2_dw5y8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
-&"": SubResource("AnimationLibrary_gl086")
+&"": SubResource("AnimationLibrary_8duty")
 }
