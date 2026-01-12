@@ -40,7 +40,6 @@ func _ready() -> void:
 		schedule.get_child(i).minigame = Globals.week_minigames[i]
 		schedule.get_child(i).offline = Globals.week_offlines[i]
 	
-	print(Globals.minigames)
 	if Globals.minigames.is_empty():
 		finished = true
 
@@ -60,6 +59,12 @@ func _on_reaction_timeout() -> void:
 		schedule.get_child(Globals.today).minigame = Globals.current_minigame
 	else:
 		schedule.get_child(Globals.today).finished = true
+		Globals.gauntlet = true
+		Globals.all_minigames.pop_at(1)
+		for i in range(5):
+			var new_minigame = Globals.all_minigames.pick_random()
+			Globals.all_minigames.erase(new_minigame)
+			Globals.gauntlet_minigames.append(new_minigame)
 	
 	ok.play()
 	
@@ -70,3 +75,5 @@ func _on_next_minigame_timeout() -> void:
 	Globals.last_minigame_won = false
 	if !finished:
 		CutoutTransition.transition_scene(Globals.current_minigame.scene_file)
+	else:
+		CutoutTransition.transition_scene(Globals.gauntlet_minigames[Globals.gauntlet_current].scene_file)

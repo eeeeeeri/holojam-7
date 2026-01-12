@@ -40,6 +40,8 @@ func _ready() -> void:
 	else:
 		allegation = TRUTH_NUKES.pick_random()
 	label.text = allegation
+	if Globals.gauntlet:
+		SPEED = 3
 
 
 func _process(delta: float) -> void:

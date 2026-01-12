@@ -3,13 +3,19 @@ extends Node2D
 @onready var outfit: Sprite2D = $Outfit
 @onready var minigame: Minigame = $".."
 @onready var confetti: CPUParticles2D = $Confetti
+@onready var end_timer: Timer = $"../EndTimer"
 var start_pos : Vector2
 var outfit_pos : Vector2
 var swiping : bool
 var speed := .05
 var done := false
 
+func _ready() -> void:
+	if Globals.gauntlet:
+		end_timer.wait_time = 1.5
+
 func _process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("left_mouse") and !minigame.done and !done:
 		swiping = true
 		start_pos = get_global_mouse_position()

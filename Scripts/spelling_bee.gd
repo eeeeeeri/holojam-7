@@ -6,9 +6,9 @@ extends Node2D
 @onready var confetti: CPUParticles2D = $Confetti
 @onready var minigame: Minigame = $".."
 @onready var puppet_kronii: AnimatedSprite2D = $PuppetKronii
+@onready var typing: AudioStreamPlayer = $Typing
 
 const words = [
-	"SUPERCALIFRAGILISTICEXPIALIDOCIOUS",
 	"CODEPENDENCY",
 	"FETTUCCINE",
 	"DECAFFEINATED",
@@ -33,7 +33,10 @@ var typed := ""
 var missed := false
 
 func _ready() -> void:
-	word = words.pick_random()
+	if Globals.gauntlet:
+		word = "SUPERCALIFRAGILISTICEXPIALIDOCIOUS"
+	else:
+		word = words.pick_random()
 	word_label.text = word
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -43,6 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			typed += ch
 			anwser.text = typed
 			puppet_kronii.play("talk")
+			typing.play()
 			if !word.begins_with(typed) and !missed:
 				animation_player.play("miss")
 				minigame.done = true

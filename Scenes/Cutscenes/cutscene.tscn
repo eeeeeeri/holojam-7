@@ -70,23 +70,6 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="Animation" id="Animation_1ch7t"]
-resource_name = "talk"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NPCs/NPC")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["normal"],
-"method": &"_yap"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_pmh5m"]
 resource_name = "angry"
 tracks/0/type = "method"
@@ -132,6 +115,23 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"_shut_up"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1ch7t"]
+resource_name = "talk"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCs/NPC")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["normal"],
+"method": &"_yap"
 }]
 }
 
@@ -202,6 +202,7 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "I'm a dialog box and I'm saying [wave]stuff[/wave]"
+scroll_active = false
 
 [node name="Timer" type="Timer" parent="DialogBox"]
 wait_time = 0.05

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bws7safjar52n"]
+[gd_scene load_steps=13 format=3 uid="uid://bws7safjar52n"]
 
 [ext_resource type="Script" uid="uid://hf46e0e1jr46" path="res://Scripts/minigame.gd" id="1_mhhjm"]
 [ext_resource type="Texture2D" uid="uid://c0unxk4fygp3e" path="res://Assets/Sprites/UI/keyboard.png" id="2_dalvu"]
 [ext_resource type="Texture2D" uid="uid://nv0x041301yv" path="res://Assets/Sprites/UI/mouse.png" id="3_el53e"]
 [ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Menu/pause.tscn" id="4_el53e"]
+[ext_resource type="Texture2D" uid="uid://elo08xati4ud" path="res://Assets/Sprites/Gauntlet/heart.png" id="4_tqkln"]
 [ext_resource type="AudioStream" uid="uid://c74c28o52o0tu" path="res://Assets/Sfx/win.wav" id="5_ixgfj"]
 [ext_resource type="AudioStream" uid="uid://dp750r3fgghe3" path="res://Assets/Sfx/lose.wav" id="6_tqkln"]
 
@@ -43,7 +44,7 @@ bg_color = Color(0.2665752, 0.26657522, 0.26657507, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33s2o"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer", "hint_timer", "progress_bar", "input_hint", "win_sound", "lose_sound")]
+[node name="Minigame" type="Node2D" node_paths=PackedStringArray("end_timer", "hint_timer", "progress_bar", "input_hint", "win_sound", "lose_sound", "hearts")]
 script = ExtResource("1_mhhjm")
 end_timer = NodePath("EndTimer")
 hint_timer = NodePath("HintTimer")
@@ -51,6 +52,7 @@ progress_bar = NodePath("CanvasLayer/ProgressBar")
 input_hint = NodePath("InputHint")
 win_sound = NodePath("WinSound")
 lose_sound = NodePath("LoseSound")
+hearts = NodePath("CanvasLayer/Hearts")
 ending_time = 2.0
 
 [node name="EndTimer" type="Timer" parent="."]
@@ -77,6 +79,28 @@ offset_bottom = 648.0
 theme_override_styles/background = SubResource("StyleBoxFlat_mhhjm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
 show_percentage = false
+
+[node name="Hearts" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -82.0
+offset_right = 120.0
+offset_bottom = -42.0
+grow_vertical = 0
+
+[node name="Heart" type="Sprite2D" parent="CanvasLayer/Hearts"]
+scale = Vector2(3, 3)
+texture = ExtResource("4_tqkln")
+hframes = 2
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer/Hearts"]
+position = Vector2(100, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("4_tqkln")
+hframes = 2
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("4_el53e")]
 
