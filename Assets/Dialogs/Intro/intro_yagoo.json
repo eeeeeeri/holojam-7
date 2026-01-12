@@ -1,0 +1,91 @@
+[
+  {
+	"speaker": "no_speaker",
+	"message": "Some time later at Hololive Headquarters",
+	"animation": "no_animation"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "Hi Yagoo, may I come in?",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Yagoo",
+	"message": "Yes, please come in!",
+	"animation": "no_animation"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "Hello... Oh?!",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Yagoo",
+	"message": "Hi Kronii, how maybe I help you?",
+	"animation": "yagoo_neutral"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "Oh um, it's uh. Ahem. Yagoo, I've given it some thought.
+	And, I think it's about time I graduate.",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Yagoo",
+	"message": "Ah. I knew this time would come eventually.",
+	"animation": "yagoo_neutral"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "You have?",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Yagoo",
+	"message": "Of course. It's been over 100,000 years since you
+	became the last active member of Hololive Productions.",
+	"animation": "yagoo_neutral"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "It's really been that long huh?
+    It feels like only yesterday when I debuted with the rest of Council.
+    ... But is it really okay if I leave? What will you do Yagoo?
+	What about the future of Hololive?",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Yagoo",
+	"message": "Ah... Of course I'll be sad to see you go.
+    No matter the era, it's always sad to see a talent go.
+    But even for a warden of time, all things must come to an end eventually.
+    You still have your whole life ahead of you-
+    many new, wonderful things to explore and experience.
+    Even if Hololive comes to an end, it'll truly never die.
+    The laughs, the tears, the memories...
+	All of it will live on in our hearts and souls.",
+	"animation": "yagoo_neutral"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "...",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Yagoo",
+	"message": "Go forth, Warden of time.
+	It's time for you to give the fans one last show to remember.",
+	"animation": "yagoo_neutral"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "Thank you, Yagoo. Thank you for everything.
+	I'll make you proud!",
+	"animation": "kronii_neutral"
+  },
+  {
+	"speaker": "Kronii",
+	"message": "Alright! Let's make this last month count!",
+	"animation": "kronii_neutral"
+  }
+]

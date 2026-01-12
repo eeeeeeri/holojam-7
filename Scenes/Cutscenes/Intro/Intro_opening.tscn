@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://di4ya16lpuiyh"]
+
+[ext_resource type="PackedScene" uid="uid://54y675w8qvbr" path="res://Scenes/Cutscenes/cutscene.tscn" id="1_fbw6n"]
+[ext_resource type="JSON" path="res://Assets/Dialogs/Intro/intro_opening.json" id="2_dw5y8"]
+
+[node name="Cutscene" instance=ExtResource("1_fbw6n")]
+json_file = ExtResource("2_dw5y8")
