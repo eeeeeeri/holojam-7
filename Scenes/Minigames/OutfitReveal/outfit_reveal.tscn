@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_c6oxw"]
 [ext_resource type="Script" uid="uid://cn6hd6x06wepc" path="res://Scripts/outfit_reveal.gd" id="2_icxge"]
 [ext_resource type="Texture2D" uid="uid://dvylfs0xwmvuv" path="res://Assets/Sprites/Schedule/menu_bg.png" id="4_icxge"]
-[ext_resource type="Texture2D" uid="uid://d3btfyhydqnsa" path="res://Assets/Sprites/OutfitReveal/temp_outfit.png" id="4_pbvc0"]
+[ext_resource type="Texture2D" uid="uid://cdyc0uokqphk8" path="res://Assets/Sprites/OutfitReveal/outfit.png" id="4_pbvc0"]
 
 [sub_resource type="Gradient" id="Gradient_n3trh"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)

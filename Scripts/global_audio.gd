@@ -3,6 +3,8 @@ extends AudioStreamPlayer
 @onready var st = stream as AudioStreamSynchronized
 @onready var trans_timer: Timer = $TransTimer
 
+const MUSIC = preload("uid://xt8gooeph3kq")
+
 enum Melody {NONE, LOUD_NO_VOX, LOUD_VOX, QUIET_SPACE, QUIET}
 enum Drums {NONE, FAST, SLOW}
 

@@ -8,6 +8,7 @@ enum InputType {KEYBOARD, MOUSE}
 @export var input_hint: AnimatedSprite2D
 @export var win_sound: AudioStreamPlayer
 @export var lose_sound: AudioStreamPlayer
+@export var hearts: Control
 @export var melody: Music.Melody
 @export var drums: Music.Drums
 @export var input_type: InputType
@@ -30,15 +31,26 @@ static func minigame(new_scene_file: String, new_title: String, new_description:
 	return new_minigame
 
 func _ready() -> void:
-	Music.play_tracks(melody,drums)
+	
+	if !Globals.gauntlet:
+		Music.play_tracks(melody,drums)
+	else:
+		hearts.visible = true
+	
+	for i in range(2):
+		if i + 1 > Globals.gauntlet_lifes:
+			hearts.get_children()[i].frame = 1
 	
 	progress_bar.max_value = end_timer.wait_time
 	
-	match input_type:
-		InputType.KEYBOARD:
-			input_hint.play("keyboard")
-		InputType.MOUSE:
-			input_hint.play("mouse")
+	if !Globals.gauntlet:
+		match input_type:
+			InputType.KEYBOARD:
+				input_hint.play("keyboard")
+			InputType.MOUSE:
+				input_hint.play("mouse")
+	
+	Globals.last_minigame_won = false
 
 func _process(delta: float) -> void:
 	
@@ -57,6 +69,7 @@ func _process(delta: float) -> void:
 		if Globals.last_minigame_won:
 			win_sound.play()
 		else:
+			Globals.gauntlet_lifes -= 1
 			lose_sound.play()
 		
 		sound_played = true
@@ -80,8 +93,21 @@ func _process(delta: float) -> void:
 			if Globals.last_minigame_won:
 				win_sound.play()
 			else:
+				Globals.gauntlet_lifes -= 1
 				lose_sound.play()
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
+		
+		if Globals.gauntlet:
+			Globals.gauntlet_current += 1
+			if Globals.gauntlet_lifes >= 0:
+				if Globals.gauntlet_current < 5:
+					CutoutTransition.transition_scene(Globals.gauntlet_minigames[Globals.gauntlet_current].scene_file)
+				else:
+					print("gg")
+			else:
+				print("lost")
+		else:
+			CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
+		
 		transitioning = true

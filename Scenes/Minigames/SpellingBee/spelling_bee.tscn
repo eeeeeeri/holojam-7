@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://75xfiemq0b1v"]
+[gd_scene load_steps=28 format=3 uid="uid://75xfiemq0b1v"]
 
 [ext_resource type="PackedScene" uid="uid://bws7safjar52n" path="res://Scenes/Minigames/minigame.tscn" id="1_aysan"]
 [ext_resource type="Script" uid="uid://dg1jib3ke2xwg" path="res://Scripts/spelling_bee.gd" id="2_a045p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c66f3kyml7a0i" path="res://Assets/Sprites/SpellingBee/kronii_puppet.png" id="4_ao7to"]
 [ext_resource type="Texture2D" uid="uid://cr4krb7205jv0" path="res://Assets/Sprites/SpellingBee/Miss.png" id="4_xuu6n"]
 [ext_resource type="Texture2D" uid="uid://bitugfdurl0ak" path="res://Assets/Sprites/SpellingBee/fire.png" id="6_lh045"]
+[ext_resource type="AudioStream" uid="uid://bjiw4gef7ehe0" path="res://Assets/Sfx/typing.wav" id="8_05g4u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fd731"]
 atlas = ExtResource("4_ao7to")
@@ -282,12 +283,12 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_lh045")
 
+[node name="Typing" type="AudioStreamPlayer" parent="Control" index="10"]
+stream = ExtResource("8_05g4u")
+bus = &"SFX"
+
 [node name="EndTimer" parent="." index="1"]
 wait_time = 12.0
-
-[node name="ProgressBar" parent="." index="2"]
-offset_top = 140.0
-offset_bottom = 144.0
 
 [node name="InputHint" parent="." index="3"]
 position = Vector2(128, 35)

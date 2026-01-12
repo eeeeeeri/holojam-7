@@ -17,14 +17,16 @@ const ROCK = preload("uid://ce2brbiebltmd")
 
 @export var speed := 8.0
 @export var width := 256.0
+var started = false
 
 signal crash
 
 func _ready() -> void:
 	Globals.cam_x = 128.0
-	Globals.last_minigame_won = true
 
 func _process(delta: float) -> void:
+	if !started:
+		Globals.last_minigame_won = true
 	
 	if Input.is_action_pressed("left_key"):
 		Globals.cam_x += speed

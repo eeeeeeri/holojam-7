@@ -1,0 +1,23 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=7 format=3 uid="uid://xt8gooeph3kq"]
+
+[ext_resource type="AudioStream" uid="uid://ggyn1tdwd7dl" path="res://Assets/Music/souten instruments/ogg/souten LOUD NO VOX.ogg" id="1_kdsrk"]
+[ext_resource type="AudioStream" uid="uid://bsl15k4nd05qu" path="res://Assets/Music/souten instruments/ogg/souten LOUD VOX.ogg" id="2_ucnxg"]
+[ext_resource type="AudioStream" uid="uid://7hqgf4bxpwda" path="res://Assets/Music/souten instruments/ogg/souten QUIET SPACE.ogg" id="3_6dtk8"]
+[ext_resource type="AudioStream" uid="uid://cxmknya6n0emy" path="res://Assets/Music/souten instruments/ogg/souten QUIET.ogg" id="4_hudln"]
+[ext_resource type="AudioStream" uid="uid://cnoqoydhhihrh" path="res://Assets/Music/souten instruments/ogg/souten FAST DRUMS.ogg" id="5_5ybk4"]
+[ext_resource type="AudioStream" uid="uid://bkfis46mau60c" path="res://Assets/Music/souten instruments/ogg/souten SLOW DRUMS.ogg" id="6_xpcyk"]
+
+[resource]
+stream_count = 6
+stream_0/stream = ExtResource("1_kdsrk")
+stream_0/volume = -60.0
+stream_1/stream = ExtResource("2_ucnxg")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("3_6dtk8")
+stream_2/volume = -60.0
+stream_3/stream = ExtResource("4_hudln")
+stream_3/volume = -60.0
+stream_4/stream = ExtResource("5_5ybk4")
+stream_4/volume = -60.0
+stream_5/stream = ExtResource("6_xpcyk")
+stream_5/volume = -60.0

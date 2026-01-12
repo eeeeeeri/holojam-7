@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-@export var speed := 2.0
+@export var speed := 4.0
 @export var car_speed := 8.0
 @export var limit := 144.0
 @export var _x : float
+
+func _ready() -> void:
+	if Globals.gauntlet:
+		speed = 6
 
 func _process(delta: float) -> void:
 	

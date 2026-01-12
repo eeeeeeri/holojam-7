@@ -12,6 +12,8 @@ var won := false
 
 func _ready() -> void:
 	sc_num = randi_range(3,8)
+	if Globals.gauntlet:
+		sc_num = 16
 	
 	for i in range(sc_num):
 		var new_superchat := SUPERCHAT.instantiate()
