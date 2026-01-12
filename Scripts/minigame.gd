@@ -108,6 +108,10 @@ func _process(delta: float) -> void:
 			else:
 				print("lost")
 		else:
-			CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
+			if Globals.minigames.size() == 1 and Globals.last_minigame_won:
+				CutoutTransition.transition_scene("res://Scenes/Cutscenes/Graduation/before_graduation.tscn")
+				Music.stop()
+			else:
+				CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
 		
 		transitioning = true

@@ -83,14 +83,11 @@ show_percentage = false
 [node name="Hearts" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -82.0
-offset_right = 120.0
-offset_bottom = -42.0
-grow_vertical = 0
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 104.0
+offset_bottom = 104.0
 
 [node name="Heart" type="Sprite2D" parent="CanvasLayer/Hearts"]
 scale = Vector2(3, 3)
