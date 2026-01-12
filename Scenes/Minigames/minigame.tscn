@@ -81,6 +81,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_33s2o")
 show_percentage = false
 
 [node name="Hearts" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
