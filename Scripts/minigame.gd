@@ -22,6 +22,7 @@ var ending: bool
 var progress: float
 var transitioning = false
 var sound_played := false
+var game_over := false
 
 static func minigame(new_scene_file: String, new_title: String, new_description: String) -> Minigame:
 	var new_minigame := Minigame.new()
@@ -107,12 +108,15 @@ func _process(delta: float) -> void:
 				else:
 					CutoutTransition.transition_scene("res://Scenes/Cutscenes/Graduation/graduation.tscn")
 			else:
-				print("lost")
+				CutoutTransition.transition_scene("res://Scenes/Cutscenes/Graduation/failed_graduation.tscn")
 		else:
 			if Globals.minigames.size() == 1 and Globals.last_minigame_won:
 				CutoutTransition.transition_scene("res://Scenes/Cutscenes/Graduation/before_graduation.tscn")
 				Music.stop()
 			else:
-				CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
+				if Globals.days_left <= 1 and Globals.tasks_left > 1:
+					CutoutTransition.transition_scene("res://Scenes/Cutscenes/Graduation/failed_graduation.tscn")
+				else:
+					CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
 		
 		transitioning = true

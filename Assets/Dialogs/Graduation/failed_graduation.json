@@ -1,0 +1,17 @@
+[
+	{
+		"speaker":"Kronii",
+		"message":"Ugh...",
+		"animation":"no_animation"
+	},
+	{
+		"speaker":"Kronii",
+		"message":"I really thought I could be better,\nThat I could do all the things before I graduate...                \nI guess I can't.",
+		"animation":""
+	},
+	{
+		"speaker":"",
+		"message":"",
+		"animation":"bad_ending"
+	}
+]

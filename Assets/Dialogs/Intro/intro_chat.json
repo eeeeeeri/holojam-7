@@ -1,8 +1,8 @@
 [
   {
 	"speaker": "Kronii",
-	"message": "Anyways it was super nice seeing you guys! Thanks for stopping by!\nI'll try and have next week's schedule up by the end of today.\nI'm thinking tomorrow I'll do some superchat reading, hopefully\nI can get through all the superchats from the last 3000 years.\nShouldn't take too long... hopefully.",
-	"animation": "kronii_happy"
+	"message": "Anyways it was super nice seeing you guys! Thanks for stopping by!\nI'll try and have next week's schedule up by the end of today.\nI'm thinking tomorrow I'll do some superchat reading, hopefully\nI can get through all the superchats from the last 3000 years.",
+	"animation": "happy_start"
   },
   {
 	"speaker": "Chat",
@@ -12,7 +12,7 @@
   {
 	"speaker": "Kronii",
 	"message": "Birthday? Oh, crap. I almost forgot.\nI guess being the warden of time does that to you sometimes.\nHmm.. Maybe I'll do a birthday zatsu, or sit in VC\nand wait for call-ins.",
-	"animation": "kronii_neutral"
+	"animation": "neutral"
   },
   {
 	"speaker": "Chat",
@@ -22,6 +22,6 @@
   {
 	"speaker": "Kronii",
 	"message": "Last member of Hololive?! What? No! That's ridiculous!\nI'll just call Irys, she's always down for call-in.\n... Huh? She graduated 300,000 years ago to save humanity?\nOh... right, I remember now.\nWhat about Florpus Melodica from Hololive Outer-Space?\nShe got sucked into a black hole? Ah, yeah, that too.\nWell then, what about Bae?!\n... She's Australian? You're right.\nDang, am I really the only one left?\nOne million years already...\nI really need to touch some grass.\nSorry guys, the schedule might be delayed.\nAnyways, Kroyasumii everyone! I'll see you next time.",
-	"animation": "kronii_neutral"
+	"animation": "neutral"
   }
 ]

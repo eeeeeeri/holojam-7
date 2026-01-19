@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlfoxssik4rkt"]
+
+[ext_resource type="PackedScene" uid="uid://be4fwbr4glclm" path="res://Scenes/Cutscenes/npcs/npc.tscn" id="1_pyshj"]
+[ext_resource type="Texture2D" uid="uid://bi0cpqsvp883e" path="res://Assets/Sprites/yagoo/yagoo_head-Sheet.png" id="2_dya2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lyv2"]
+atlas = ExtResource("2_dya2f")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0217o"]
+atlas = ExtResource("2_dya2f")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a3pb"]
+atlas = ExtResource("2_dya2f")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpkh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lyv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0217o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a3pb")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 10.0
+}]
+
+[node name="Yagoo" instance=ExtResource("1_pyshj")]
+scale = Vector2(2.222, 2.222)
+sprite_frames = SubResource("SpriteFrames_cpkh4")
+frame_progress = 0.2341771

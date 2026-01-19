@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://54y675w8qvbr"]
+[gd_scene load_steps=6 format=3 uid="uid://54y675w8qvbr"]
 
 [ext_resource type="Script" uid="uid://21efemtwjvta" path="res://Scripts/cutscene.gd" id="1_wdfqq"]
 [ext_resource type="PackedScene" uid="uid://tdd4swejoeks" path="res://Scenes/Menu/pause.tscn" id="3_1f2to"]
+[ext_resource type="Texture2D" uid="uid://jtyhw2tjh82m" path="res://Assets/Sprites/UI/arrow.png" id="3_o337d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lemd"]
 content_margin_left = 24.0
@@ -19,11 +20,9 @@ content_margin_left = 24.0
 content_margin_top = 8.0
 content_margin_right = 24.0
 content_margin_bottom = 8.0
-bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.6666667)
+bg_color = Color(0.14, 0.14, 0.14, 0.78431374)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [node name="Cutscene2" type="Control"]
 layout_mode = 3
@@ -38,8 +37,8 @@ script = ExtResource("1_wdfqq")
 visible = false
 z_index = -1
 layout_mode = 0
-offset_right = 1145.0
-offset_bottom = 644.0
+offset_right = 1152.0
+offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="NPCs" type="Node2D" parent="."]
@@ -95,4 +94,25 @@ one_shot = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("3_1f2to")]
 
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1110, 530)
+scale = Vector2(2, 2)
+texture = ExtResource("3_o337d")
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "SKIP
+"
+
 [connection signal="timeout" from="DialogBox/Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="SkipButton" to="." method="_on_skip_button_button_down"]

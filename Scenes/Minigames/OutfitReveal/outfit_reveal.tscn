@@ -63,5 +63,8 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_2oswx")
 
+[node name="EndTimer" parent="." index="1"]
+wait_time = 3.0
+
 [node name="InputHint" parent="." index="3"]
 position = Vector2(128, 72)

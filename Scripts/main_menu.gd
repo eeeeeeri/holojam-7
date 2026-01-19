@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _on_start_button_button_down() -> void:
-	CutoutTransition.transition_scene("res://Scenes/Schedule/main.tscn")
+	CutoutTransition.transition_scene("res://Scenes/Cutscenes/Intro/Intro_opening.tscn")
 	if Music.current != Music.Song.SNM: Music.change(Music.Song.SNM)
 	Globals.reset()
 

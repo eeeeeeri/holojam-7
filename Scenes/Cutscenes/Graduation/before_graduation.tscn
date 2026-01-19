@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://db1wdn0f2t6hg"]
+[gd_scene load_steps=4 format=3 uid="uid://cfrg3a6wa8lk4"]
 
-[ext_resource type="PackedScene" uid="uid://54y675w8qvbr" path="res://Scenes/Cutscenes/cutscene.tscn" id="1_ro1cu"]
-[ext_resource type="JSON" path="res://Assets/Dialogs/Graduation/before_graduation.json" id="2_s82k8"]
-[ext_resource type="PackedScene" uid="uid://bnqhejfut3w7b" path="res://Scenes/Schedule/main.tscn" id="3_87x68"]
+[ext_resource type="PackedScene" uid="uid://54y675w8qvbr" path="res://Scenes/Cutscenes/cutscene.tscn" id="1_bj0n1"]
+[ext_resource type="JSON" path="res://Assets/Dialogs/Graduation/before_graduation.json" id="2_ig2y5"]
+[ext_resource type="PackedScene" uid="uid://bnqhejfut3w7b" path="res://Scenes/Schedule/main.tscn" id="3_ail70"]
 
-[node name="Cutscene" instance=ExtResource("1_ro1cu")]
-json_file = ExtResource("2_s82k8")
-next_scene = ExtResource("3_87x68")
+[node name="Cutscene" instance=ExtResource("1_bj0n1")]
+json_file = ExtResource("2_ig2y5")
+next_scene = ExtResource("3_ail70")
 
 [node name="BlackBackground" parent="." index="0"]
 visible = true
+offset_right = 1152.0
+offset_bottom = 648.0

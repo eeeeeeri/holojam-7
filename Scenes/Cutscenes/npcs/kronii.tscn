@@ -1,0 +1,166 @@
+[gd_scene load_steps=25 format=3 uid="uid://d23qj5dlimijr"]
+
+[ext_resource type="Texture2D" uid="uid://ptdf3eam870f" path="res://Assets/Sprites/Kronii/kronii-angry-sheet.png" id="1_w4aps"]
+[ext_resource type="Texture2D" uid="uid://d3qvt03r0bpce" path="res://Assets/Sprites/Kronii/kronii-angry-sheet1.png" id="2_qsr7d"]
+[ext_resource type="Texture2D" uid="uid://c4d62y3ml6bk2" path="res://Assets/Sprites/Kronii/kronii neutral-Sheet.png" id="3_tnmm6"]
+[ext_resource type="Texture2D" uid="uid://b53lrkynpkp3m" path="res://Assets/Sprites/Kronii/kronii-victory-sheet.png" id="4_5mgd1"]
+[ext_resource type="Texture2D" uid="uid://dgvd3fox8grgj" path="res://Assets/Sprites/Kronii/kronii-angry-talk.png" id="5_b8ok0"]
+[ext_resource type="Texture2D" uid="uid://baswk1xsw2kwy" path="res://Assets/Sprites/Kronii/kronii-happy-talk.png" id="6_tniyx"]
+[ext_resource type="Texture2D" uid="uid://d01nrhx1v5yk2" path="res://Assets/Sprites/Kronii/Kronii_neutral_talk.png" id="7_qdhpq"]
+[ext_resource type="Script" uid="uid://yy8303buqicx" path="res://Scripts/npc.gd" id="8_be3dv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35h1h"]
+atlas = ExtResource("1_w4aps")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l1q0"]
+atlas = ExtResource("2_qsr7d")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojobo"]
+atlas = ExtResource("3_tnmm6")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20043"]
+atlas = ExtResource("3_tnmm6")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcg5u"]
+atlas = ExtResource("4_5mgd1")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00b8s"]
+atlas = ExtResource("4_5mgd1")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lu2e"]
+atlas = ExtResource("5_b8ok0")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkmrg"]
+atlas = ExtResource("5_b8ok0")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruab1"]
+atlas = ExtResource("5_b8ok0")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jewsh"]
+atlas = ExtResource("6_tniyx")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8geh"]
+atlas = ExtResource("6_tniyx")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4vc6"]
+atlas = ExtResource("6_tniyx")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ghp"]
+atlas = ExtResource("7_qdhpq")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7rv1"]
+atlas = ExtResource("7_qdhpq")
+region = Rect2(112, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xpxm"]
+atlas = ExtResource("7_qdhpq")
+region = Rect2(224, 0, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8geh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35h1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l1q0")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20043")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcg5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00b8s")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_6lu2e")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_rkmrg")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_ruab1")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_rkmrg")
+}],
+"loop": true,
+"name": &"kronii_angry",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_jewsh")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_s8geh")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_n4vc6")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_s8geh")
+}],
+"loop": true,
+"name": &"kronii_happy",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_e0ghp")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_n7rv1")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_1xpxm")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_n7rv1")
+}],
+"loop": true,
+"name": &"kronii_neutral",
+"speed": 8.0
+}]
+
+[node name="Kronii" type="AnimatedSprite2D"]
+position = Vector2(0, -1)
+scale = Vector2(2.2222223, 2.2222223)
+sprite_frames = SubResource("SpriteFrames_s8geh")
+animation = &"kronii_neutral"
+autoplay = "default"
+frame_progress = 0.03237075
+script = ExtResource("8_be3dv")
